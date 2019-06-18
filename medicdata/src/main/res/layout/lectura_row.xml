@@ -38,35 +38,35 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="17dp" />
+        app:layout_constraintGuide_begin="16dp" />
 
     <android.support.constraint.Guideline
         android:id="@+id/verticalGuideline2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="98dp" />
+        app:layout_constraintGuide_begin="116dp" />
 
     <android.support.constraint.Guideline
         android:id="@+id/verticalGuideline3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="178dp" />
+        app:layout_constraintGuide_begin="186dp" />
 
     <android.support.constraint.Guideline
         android:id="@+id/verticalGuideline4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="223dp" />
+        app:layout_constraintGuide_begin="225dp" />
 
     <android.support.constraint.Guideline
         android:id="@+id/verticalGuideline5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="308dp" />
+        app:layout_constraintGuide_begin="325dp" />
 
     <android.support.constraint.Guideline
         android:id="@+id/verticalGuideline6"
@@ -84,6 +84,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:text="Fecha"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/horizontalGuideline2"
         app:layout_constraintEnd_toStartOf="@+id/verticalGuideline2"
         app:layout_constraintStart_toStartOf="@+id/verticalGuideline1"
@@ -95,13 +96,16 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
         android:text="Hora"
-        app:layout_constraintBottom_toTopOf="@+id/horizontalGuideline3"
-        app:layout_constraintEnd_toStartOf="@+id/verticalGuideline2"
-        app:layout_constraintStart_toStartOf="@+id/verticalGuideline1"
-        app:layout_constraintTop_toTopOf="@+id/horizontalGuideline2" />
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/horizontalGuideline2"
+        app:layout_constraintEnd_toStartOf="@+id/verticalGuideline5"
+        app:layout_constraintStart_toStartOf="@+id/verticalGuideline4"
+        app:layout_constraintTop_toTopOf="@+id/horizontalGuideline1" />
 
     <TextView
         android:id="@+id/textView3"
@@ -109,27 +113,30 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:text="Peso (kgs)"
-        app:layout_constraintBottom_toTopOf="@+id/horizontalGuideline4"
-        app:layout_constraintEnd_toStartOf="@+id/verticalGuideline2"
-        app:layout_constraintStart_toStartOf="@+id/verticalGuideline1"
-        app:layout_constraintTop_toTopOf="@+id/horizontalGuideline3" />
+        android:layout_marginBottom="8dp"
+        android:text="Peso"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/horizontalGuideline3"
+        app:layout_constraintEnd_toStartOf="@+id/verticalGuideline3"
+        app:layout_constraintStart_toStartOf="@+id/verticalGuideline2"
+        app:layout_constraintTop_toTopOf="@+id/horizontalGuideline2" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
         android:text="Diastólica:"
-        app:layout_constraintBottom_toTopOf="@+id/horizontalGuideline2"
-        app:layout_constraintEnd_toStartOf="@+id/verticalGuideline5"
-        app:layout_constraintStart_toStartOf="@+id/verticalGuideline4"
-        app:layout_constraintTop_toTopOf="@+id/horizontalGuideline1" />
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/horizontalGuideline4"
+        app:layout_constraintEnd_toStartOf="@+id/verticalGuideline2"
+        app:layout_constraintTop_toTopOf="@+id/horizontalGuideline3" />
 
     <TextView
         android:id="@+id/textView5"
@@ -140,6 +147,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:text="Sistólica:"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/horizontalGuideline4"
         app:layout_constraintEnd_toStartOf="@+id/verticalGuideline5"
         app:layout_constraintStart_toStartOf="@+id/verticalGuideline4"
@@ -170,10 +178,10 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:hint="Hora"
-        app:layout_constraintBottom_toTopOf="@+id/horizontalGuideline3"
-        app:layout_constraintEnd_toStartOf="@+id/verticalGuideline3"
-        app:layout_constraintStart_toStartOf="@+id/verticalGuideline2"
-        app:layout_constraintTop_toTopOf="@+id/horizontalGuideline2" />
+        app:layout_constraintBottom_toTopOf="@+id/horizontalGuideline2"
+        app:layout_constraintEnd_toStartOf="@+id/verticalGuideline6"
+        app:layout_constraintStart_toStartOf="@+id/verticalGuideline5"
+        app:layout_constraintTop_toTopOf="@+id/horizontalGuideline1" />
 
     <TextView
         android:id="@+id/idPeso"
@@ -181,27 +189,29 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
         android:hint="Peso"
-        app:layout_constraintBottom_toTopOf="@+id/horizontalGuideline4"
-        app:layout_constraintEnd_toStartOf="@+id/verticalGuideline3"
-        app:layout_constraintStart_toStartOf="@+id/verticalGuideline2"
-        app:layout_constraintTop_toTopOf="@+id/horizontalGuideline3" />
+        app:layout_constraintBottom_toTopOf="@+id/horizontalGuideline3"
+        app:layout_constraintEnd_toStartOf="@+id/verticalGuideline5"
+        app:layout_constraintStart_toStartOf="@+id/verticalGuideline4"
+        app:layout_constraintTop_toTopOf="@+id/horizontalGuideline2" />
 
     <TextView
         android:id="@+id/idDiastolica"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
         android:hint="Diastólica"
-        app:layout_constraintBottom_toTopOf="@+id/horizontalGuideline2"
-        app:layout_constraintEnd_toStartOf="@+id/verticalGuideline6"
-        app:layout_constraintStart_toStartOf="@+id/verticalGuideline5"
-        app:layout_constraintTop_toTopOf="@+id/horizontalGuideline1" />
+        app:layout_constraintBottom_toTopOf="@+id/horizontalGuideline4"
+        app:layout_constraintEnd_toStartOf="@+id/verticalGuideline3"
+        app:layout_constraintStart_toStartOf="@+id/verticalGuideline2"
+        app:layout_constraintTop_toTopOf="@+id/horizontalGuideline3" />
 
     <TextView
         android:id="@+id/idSistolica"
