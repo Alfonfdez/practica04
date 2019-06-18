@@ -9,7 +9,9 @@ public class Lectura implements Serializable {
 
     //Atributos
     private Integer codigo;
-    private Date fechaHora;
+    //private Date fechaHora;
+    private Date fecha;
+    private Date hora;
     private double peso;
     private double diastolica;
     private double sistolica;
@@ -23,8 +25,11 @@ public class Lectura implements Serializable {
     }
 
     //Constructores con argumentos
-    public Lectura(Date fechaHora, double peso, double diastolica, double sistolica, double longitud, double latitud) {
-        this.fechaHora = fechaHora;
+    //public Lectura(Date fechaHora, double peso, double diastolica, double sistolica, double longitud, double latitud) {
+        //this.fechaHora = fechaHora;
+    public Lectura(Date fecha, Date hora, double peso, double diastolica, double sistolica, double longitud, double latitud) {
+        this.fecha = fecha;
+        this.hora = hora;
         this.peso = peso;
         this.diastolica = diastolica;
         this.sistolica = sistolica;
@@ -32,8 +37,12 @@ public class Lectura implements Serializable {
         this.latitud = latitud;
     }
 
-    public Lectura(Date fechaHora, double peso, double diastolica, double sistolica) {
-        this.fechaHora = fechaHora;
+    //public Lectura(Date fechaHora, double peso, double diastolica, double sistolica) {
+        //this.fechaHora = fechaHora;
+
+    public Lectura(Date fecha, Date hora, double peso, double diastolica, double sistolica) {
+        this.fecha = fecha;
+        this.hora = hora;
         this.peso = peso;
         this.diastolica = diastolica;
         this.sistolica = sistolica;
@@ -48,12 +57,28 @@ public class Lectura implements Serializable {
         this.codigo = codigo;
     }
 
-    public Date getFechaHora() {
+    /*public Date getFechaHora() {
         return fechaHora;
     }
 
     public void setFechaHora(Date fechaHora) {
         this.fechaHora = fechaHora;
+    }*/
+
+    public Date getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
+
+    public Date getHora() {
+        return hora;
+    }
+
+    public void setHora(Date Hora) {
+        this.hora = hora;
     }
 
     public double getPeso() {
@@ -97,11 +122,25 @@ public class Lectura implements Serializable {
     }
 
     //Métodos
-    @Override
+    /*@Override
     public String toString() {
         return "Lectura{" +
                 "codigo=" + codigo +
                 ", fechaHora=" + fechaHora +
+                ", peso=" + peso +
+                ", diastolica=" + diastolica +
+                ", sistolica=" + sistolica +
+                ", longitud=" + longitud +
+                ", latitud=" + latitud +
+                '}';
+    }*/
+
+    @Override
+    public String toString() {
+        return "Lectura{" +
+                "codigo=" + codigo +
+                ", fecha=" + fecha +
+                ", hora=" + hora +
                 ", peso=" + peso +
                 ", diastolica=" + diastolica +
                 ", sistolica=" + sistolica +

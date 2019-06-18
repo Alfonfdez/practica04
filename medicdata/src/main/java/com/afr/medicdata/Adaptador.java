@@ -10,8 +10,8 @@ import android.widget.TextView;
 import com.afr.medicdata.model.Lectura;
 import com.afr.medicdata.model.LecturaServicesImpl;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
-import java.util.zip.Inflater;
 
 public class Adaptador extends BaseAdapter {
 
@@ -47,11 +47,23 @@ public class Adaptador extends BaseAdapter {
 
         final View vista = inflater.inflate(R.layout.lectura_row, null);
 
+        TextView fecha = (TextView) vista.findViewById(R.id.idFecha);
+        TextView hora = (TextView) vista.findViewById(R.id.idHora);
+        TextView peso = (TextView) vista.findViewById(R.id.idPeso);
         TextView diastolica = (TextView) vista.findViewById(R.id.idDiastolica);
         TextView sistolica = (TextView) vista.findViewById(R.id.idSistolica);
 
         Lectura lectura = lecturas.get(i);
 
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat sdf2 = new SimpleDateFormat("HH:mm");
+
+        String strParteFecha = sdf.format(lectura.getFecha());
+        String strParteHora = sdf2.format(lectura.getHora());
+
+        fecha.setText(strParteFecha);
+        hora.setText(strParteHora);
+        peso.setText(String.valueOf(lectura.getPeso()));
         diastolica.setText(String.valueOf(lectura.getDiastolica()));
         sistolica.setText(String.valueOf(lectura.getSistolica()));
 

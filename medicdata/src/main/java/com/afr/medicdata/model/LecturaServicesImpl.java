@@ -15,9 +15,12 @@ public class LecturaServicesImpl implements LecturaServices{
     private static final LecturaServicesImpl INSTANCE = new LecturaServicesImpl();
 
     static{
+
         LECTURAS = new TreeMap<>();
 
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        //SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        SimpleDateFormat sdfFecha = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat sdfHora = new SimpleDateFormat("HH:mm");
 
         Date fecha0 = null;
         Date fecha1 = null;
@@ -30,32 +33,55 @@ public class LecturaServicesImpl implements LecturaServices{
         Date fecha8 = null;
         Date fecha9 = null;
 
+        Date hora0 = null;
+        Date hora1 = null;
+        Date hora2 = null;
+        Date hora3 = null;
+        Date hora4 = null;
+        Date hora5 = null;
+        Date hora6 = null;
+        Date hora7 = null;
+        Date hora8 = null;
+        Date hora9 = null;
+
 
         try {
-            fecha0 = sdf.parse("01/01/2019 15:00:00");
-            fecha1 = sdf.parse("02/01/2019 18:59:25");
-            fecha2 = sdf.parse("03/01/2019 10:05:01");
-            fecha3 = sdf.parse("04/01/2019 21:35:30");
-            fecha4 = sdf.parse("05/01/2019 16:15:42");
-            fecha5 = sdf.parse("06/01/2019 17:00:08");
-            fecha6 = sdf.parse("07/01/2019 09:35:15");
-            fecha7 = sdf.parse("08/01/2019 13:48:50");
-            fecha8 = sdf.parse("09/01/2019 22:20:30");
-            fecha9 = sdf.parse("10/01/2019 21:05:20");
+            fecha0 = sdfFecha.parse("01/01/2019");
+            fecha1 = sdfFecha.parse("02/01/2019");
+            fecha2 = sdfFecha.parse("03/01/2019");
+            fecha3 = sdfFecha.parse("04/01/2019");
+            fecha4 = sdfFecha.parse("05/01/2019");
+            fecha5 = sdfFecha.parse("06/01/2019");
+            fecha6 = sdfFecha.parse("07/01/2019");
+            fecha7 = sdfFecha.parse("08/01/2019");
+            fecha8 = sdfFecha.parse("09/01/2019");
+            fecha9 = sdfFecha.parse("10/01/2019");
+
+            hora0 = sdfHora.parse("15:00");
+            hora1 = sdfHora.parse("18:59");
+            hora2 = sdfHora.parse("10:05");
+            hora3 = sdfHora.parse("21:35");
+            hora4 = sdfHora.parse("16:15");
+            hora5 = sdfHora.parse("17:00");
+            hora6 = sdfHora.parse("09:35");
+            hora7 = sdfHora.parse("13:49");
+            hora8 = sdfHora.parse("22:20");
+            hora9 = sdfHora.parse("21:05");
+
         } catch (ParseException e) {
             e.printStackTrace();
         }
 
-        Lectura l0 = new Lectura(fecha0, 85.4, 91.2, 105.3,  41.3818,2.1685);
-        Lectura l1 = new Lectura(fecha1, 85.9, 90.2, 102.5,  41.3818,2.1685);
-        Lectura l2 = new Lectura(fecha2, 86.0, 92.5, 104.0,  41.3818,2.1685);
-        Lectura l3 = new Lectura(fecha3, 85.2, 90.6, 106.9,  41.3818,2.1685);
-        Lectura l4 = new Lectura(fecha4, 84.8, 90.3, 106.8,  41.3818,2.1685);
-        Lectura l5 = new Lectura(fecha5, 84.9, 90.9, 103.4,  41.3818,2.1685);
-        Lectura l6 = new Lectura(fecha6, 85.3, 92.0, 107.6,  41.3818,2.1685);
-        Lectura l7 = new Lectura(fecha7, 85.3, 95.2, 108.2,  41.3818,2.1685);
-        Lectura l8 = new Lectura(fecha8, 85.7, 96.7, 106.7,  41.3818,2.1685);
-        Lectura l9 = new Lectura(fecha9, 85.9, 95.3, 105.0,  41.3818,2.1685);
+        Lectura l0 = new Lectura(fecha0, hora0, 85.4, 91.2, 105.3,  41.3818,2.1685);
+        Lectura l1 = new Lectura(fecha1, hora1,85.9, 90.2, 102.5,  41.3818,2.1685);
+        Lectura l2 = new Lectura(fecha2, hora2,86.0, 92.5, 104.0,  41.3818,2.1685);
+        Lectura l3 = new Lectura(fecha3, hora3, 85.2, 90.6, 106.9,  41.3818,2.1685);
+        Lectura l4 = new Lectura(fecha4, hora4, 84.8, 90.3, 106.8,  41.3818,2.1685);
+        Lectura l5 = new Lectura(fecha5, hora5, 84.9, 90.9, 103.4,  41.3818,2.1685);
+        Lectura l6 = new Lectura(fecha6, hora6, 85.3, 92.0, 107.6,  41.3818,2.1685);
+        Lectura l7 = new Lectura(fecha7, hora7, 85.3, 95.2, 108.2,  41.3818,2.1685);
+        Lectura l8 = new Lectura(fecha8, hora8, 85.7, 96.7, 106.7,  41.3818,2.1685);
+        Lectura l9 = new Lectura(fecha9, hora9, 85.9, 95.3, 105.0,  41.3818,2.1685);
 
         l0.setCodigo(100);
         l1.setCodigo(101);
@@ -137,9 +163,10 @@ public class LecturaServicesImpl implements LecturaServices{
 
         for(Lectura lectura : getAll()){
 
-            Date fechaHora = lectura.getFechaHora();
+            //Date fechaHora = lectura.getFechaHora();
+            Date fecha = lectura.getFecha();
 
-            if(fechaHora.after(fecha1) && fechaHora.before(fecha2)){
+            if(fecha.after(fecha1) && fecha.before(fecha2)){
                 lecturas.add(lectura);
             }
         }
