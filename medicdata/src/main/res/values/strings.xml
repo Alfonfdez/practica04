@@ -1,3 +1,21 @@
-<resources>
-    <string name="app_name">medicdata</string>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Modelo de datos -->
+    <string name="app_name">Medic Data app</string>
+    <string name="codigo">Código</string>
+    <string name="diastolica">Diastólica</string>
+    <string name="sistolica">Sistólica</string>
+    <string name="peso">Peso</string>
+    <string name="fecha">Fecha</string>
+    <string name="hora">Hora</string>
+    <string name="longitud">Longitud</string>
+    <string name="latitud">Latitud</string>
+
+    <string name="enviar">Enviar</string>
+
+    <!-- Place Holders para Formulario -->
+    <string name="diastolicaPlaceHolder">000</string>
+    <string name="sistolicaPlaceHolder">000</string>
+    <string name="pesoPlaceHolder">0</string>
+
 </resources>

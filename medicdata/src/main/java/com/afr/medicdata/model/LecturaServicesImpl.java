@@ -3,6 +3,8 @@ package com.afr.medicdata.model;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -121,7 +123,7 @@ public class LecturaServicesImpl implements LecturaServices{
         //Hemos de calcular el nuevo código...
         //Casteamos LECTURAS
         Integer maxCode = ((TreeMap<Integer, Lectura>)LECTURAS).lastKey();
-        Integer newCode = maxCode++;
+        Integer newCode = ++maxCode;
 
         lectura.setCodigo(newCode);
 
@@ -154,11 +156,27 @@ public class LecturaServicesImpl implements LecturaServices{
 
     @Override
     public List<Lectura> getAll() {
-        return new ArrayList<Lectura>(LECTURAS.values());
+
+        List<Lectura> lecturas = new ArrayList<>(LECTURAS.values());
+
+        Collections.sort(lecturas, new Comparator<Lectura>() {
+
+            @Override
+            public int compare(Lectura lectura0, Lectura lectura1) {
+
+                return lectura1.getCodigo() - lectura0.getCodigo();
+            }
+        });
+
+        return lecturas;
     }
+
+
+
 
     @Override
     public List<Lectura> getBetweenDates(Date fecha1, Date fecha2) {
+
         List<Lectura> lecturas = new ArrayList<>();
 
         for(Lectura lectura : getAll()){

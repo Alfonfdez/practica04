@@ -49,7 +49,7 @@ public class Adaptador extends BaseAdapter {
 
         TextView fecha = (TextView) vista.findViewById(R.id.idFecha);
         TextView hora = (TextView) vista.findViewById(R.id.idHora);
-        TextView peso = (TextView) vista.findViewById(R.id.idPeso);
+        TextView peso = (TextView) vista.findViewById(R.id.idEntradaPeso);
         TextView diastolica = (TextView) vista.findViewById(R.id.idDiastolica);
         TextView sistolica = (TextView) vista.findViewById(R.id.idSistolica);
 
