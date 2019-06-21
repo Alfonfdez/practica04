@@ -1,6 +1,409 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <android.support.constraint.Guideline
+        android:id="@+id/verticalGuideline1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.02" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/verticalGuideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.33" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/verticalGuideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.66909975" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/verticalGuideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.98" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/horizontalGuideline1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.02" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/horizontalGuideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.06" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/horizontalGuideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/horizontalGuideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.14" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/horizontalGuideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.18" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/horizontalGuideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.22" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/horizontalGuideline7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.26" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/horizontalGuideline8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.3" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/horizontalGuideline9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.34" />
+
+    <TextView
+        android:id="@+id/textViewFecha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="Fecha"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="@+id/horizontalGuideline1"
+        app:layout_constraintBottom_toTopOf="@+id/horizontalGuideline2"
+        app:layout_constraintStart_toStartOf="@+id/verticalGuideline1"
+        app:layout_constraintEnd_toStartOf="@+id/verticalGuideline2" />
+
+    <TextView
+        android:id="@+id/textViewHora"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="Hora"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="@+id/horizontalGuideline1"
+        app:layout_constraintBottom_toTopOf="@+id/horizontalGuideline2"
+        app:layout_constraintStart_toStartOf="@+id/verticalGuideline2"
+        app:layout_constraintEnd_toStartOf="@+id/verticalGuideline3" />
+
+    <TextView
+        android:id="@+id/textViewAgenteNombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="Nombre Agente"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="@+id/horizontalGuideline3"
+        app:layout_constraintBottom_toTopOf="@+id/horizontalGuideline4"
+        app:layout_constraintStart_toStartOf="@+id/verticalGuideline1"
+        app:layout_constraintEnd_toStartOf="@+id/verticalGuideline2" />
+
+    <TextView
+        android:id="@+id/textViewAgenteApellido1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="Apellido1 Agente"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="@+id/horizontalGuideline3"
+        app:layout_constraintBottom_toTopOf="@+id/horizontalGuideline4"
+        app:layout_constraintStart_toStartOf="@+id/verticalGuideline2"
+        app:layout_constraintEnd_toStartOf="@+id/verticalGuideline3" />
+
+    <TextView
+        android:id="@+id/textViewAgenteApellido2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="Apellido2 Agente"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="@+id/horizontalGuideline3"
+        app:layout_constraintBottom_toTopOf="@+id/horizontalGuideline4"
+        app:layout_constraintStart_toStartOf="@+id/verticalGuideline3"
+        app:layout_constraintEnd_toStartOf="@+id/verticalGuideline4" />
+
+    <TextView
+        android:id="@+id/textViewMotivo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="Motivo"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="@+id/horizontalGuideline5"
+        app:layout_constraintBottom_toTopOf="@+id/horizontalGuideline6"
+        app:layout_constraintStart_toStartOf="@+id/verticalGuideline1"
+        app:layout_constraintEnd_toStartOf="@+id/verticalGuideline2" />
+
+    <TextView
+        android:id="@+id/textViewImporte"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="Importe"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="@+id/horizontalGuideline5"
+        app:layout_constraintBottom_toTopOf="@+id/horizontalGuideline6"
+        app:layout_constraintStart_toStartOf="@+id/verticalGuideline2"
+        app:layout_constraintEnd_toStartOf="@+id/verticalGuideline3" />
+
+    <TextView
+        android:id="@+id/textViewAceptada"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="Aceptada"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="@+id/horizontalGuideline5"
+        app:layout_constraintBottom_toTopOf="@+id/horizontalGuideline6"
+        app:layout_constraintStart_toStartOf="@+id/verticalGuideline3"
+        app:layout_constraintEnd_toStartOf="@+id/verticalGuideline4" />
+
+    <TextView
+        android:id="@+id/textViewTipo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="Tipo"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="@+id/horizontalGuideline7"
+        app:layout_constraintBottom_toTopOf="@+id/horizontalGuideline8"
+        app:layout_constraintStart_toStartOf="@+id/verticalGuideline1"
+        app:layout_constraintEnd_toStartOf="@+id/verticalGuideline2" />
+
+    <TextView
+        android:id="@+id/textViewObservaciones"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="Observaciones"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="@+id/horizontalGuideline7"
+        app:layout_constraintBottom_toTopOf="@+id/horizontalGuideline8"
+        app:layout_constraintStart_toStartOf="@+id/verticalGuideline2"
+        app:layout_constraintEnd_toStartOf="@+id/verticalGuideline3" />
+
+    <TextView
+        android:id="@+id/id_tvFecha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="Fecha"
+        app:layout_constraintTop_toTopOf="@+id/horizontalGuideline2"
+        app:layout_constraintBottom_toTopOf="@+id/horizontalGuideline3"
+        app:layout_constraintStart_toStartOf="@+id/verticalGuideline1"
+        app:layout_constraintEnd_toStartOf="@+id/verticalGuideline2" />
+
+    <TextView
+        android:id="@+id/id_tvHora"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="Hora"
+        app:layout_constraintTop_toTopOf="@+id/horizontalGuideline2"
+        app:layout_constraintBottom_toTopOf="@+id/horizontalGuideline3"
+        app:layout_constraintStart_toStartOf="@+id/verticalGuideline2"
+        app:layout_constraintEnd_toStartOf="@+id/verticalGuideline3" />
+
+    <TextView
+        android:id="@+id/id_tvNombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="Nombre Agente"
+        app:layout_constraintTop_toTopOf="@+id/horizontalGuideline4"
+        app:layout_constraintBottom_toTopOf="@+id/horizontalGuideline5"
+        app:layout_constraintStart_toStartOf="@+id/verticalGuideline1"
+        app:layout_constraintEnd_toStartOf="@+id/verticalGuideline2" />
+
+    <TextView
+        android:id="@+id/id_tvApellido1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="Apellido1 Agente"
+        app:layout_constraintTop_toTopOf="@+id/horizontalGuideline4"
+        app:layout_constraintBottom_toTopOf="@+id/horizontalGuideline5"
+        app:layout_constraintStart_toStartOf="@+id/verticalGuideline2"
+        app:layout_constraintEnd_toStartOf="@+id/verticalGuideline3" />
+
+    <TextView
+        android:id="@+id/id_tvApellido2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="Apellido2 Agente"
+        app:layout_constraintTop_toTopOf="@+id/horizontalGuideline4"
+        app:layout_constraintBottom_toTopOf="@+id/horizontalGuideline5"
+        app:layout_constraintStart_toStartOf="@+id/verticalGuideline3"
+        app:layout_constraintEnd_toStartOf="@+id/verticalGuideline4" />
+
+    <TextView
+        android:id="@+id/id_tvMotivo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="Motivo"
+        app:layout_constraintTop_toTopOf="@+id/horizontalGuideline6"
+        app:layout_constraintBottom_toTopOf="@+id/horizontalGuideline7"
+        app:layout_constraintStart_toStartOf="@+id/verticalGuideline1"
+        app:layout_constraintEnd_toStartOf="@+id/verticalGuideline2" />
+
+    <TextView
+        android:id="@+id/id_tvImporte"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="Importe"
+        app:layout_constraintTop_toTopOf="@+id/horizontalGuideline6"
+        app:layout_constraintBottom_toTopOf="@+id/horizontalGuideline7"
+        app:layout_constraintStart_toStartOf="@+id/verticalGuideline2"
+        app:layout_constraintEnd_toStartOf="@+id/verticalGuideline3" />
+
+    <TextView
+        android:id="@+id/id_tvAceptada"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="Aceptada"
+        app:layout_constraintTop_toTopOf="@+id/horizontalGuideline6"
+        app:layout_constraintBottom_toTopOf="@+id/horizontalGuideline7"
+        app:layout_constraintStart_toStartOf="@+id/verticalGuideline3"
+        app:layout_constraintEnd_toStartOf="@+id/verticalGuideline4" />
+
+    <TextView
+        android:id="@+id/id_tvTipo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="Tipo"
+        app:layout_constraintTop_toTopOf="@+id/horizontalGuideline8"
+        app:layout_constraintBottom_toTopOf="@+id/horizontalGuideline9"
+        app:layout_constraintStart_toStartOf="@+id/verticalGuideline1"
+        app:layout_constraintEnd_toStartOf="@+id/verticalGuideline2" />
+
+    <TextView
+        android:id="@+id/id_tvObservaciones"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="Observaciones"
+        app:layout_constraintTop_toTopOf="@+id/horizontalGuideline8"
+        app:layout_constraintBottom_toTopOf="@+id/horizontalGuideline9"
+        app:layout_constraintStart_toStartOf="@+id/verticalGuideline2"
+        app:layout_constraintEnd_toStartOf="@+id/verticalGuideline3" />
 
 </android.support.constraint.ConstraintLayout>

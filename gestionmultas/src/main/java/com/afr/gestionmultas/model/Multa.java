@@ -31,6 +31,17 @@ public class Multa implements Serializable {
 		this.tipo = tipo;
 	}
 
+	public Multa(Date fechaHora, Agente agente, String motivo, boolean aceptada, String observaciones,
+				 double importe, Tipo tipo) {
+		this.fechaHora = fechaHora;
+		this.agente = agente;
+		this.motivo = motivo;
+		this.aceptada = aceptada;
+		this.observaciones = observaciones;
+		this.importe = importe;
+		this.tipo = tipo;
+	}
+
 	public Long getCodigo() {
 		return codigo;
 	}
