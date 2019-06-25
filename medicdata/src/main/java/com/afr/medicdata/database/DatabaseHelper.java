@@ -1,4 +1,4 @@
-package com.afr.sqlitehelloworld;
+package com.afr.medicdata.database;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -16,23 +16,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         super();
     }*/
 
-    public static final String DATABASE_NAME = "amigos.db";
+    public static final String DATABASE_NAME = "medicdata.db";
 
-    public static final String AMIGOS_TABLE = "AMIGOS";
+    public static final String MEDICDATA_TABLE = "MEDICDATA";
 
     public static final String COL_1 = "ID";
-    public static final String COL_2 = "NOMBRE";
-    public static final String COL_3 = "APELLIDO1";
-    public static final String COL_4 = "APELLIDO2";
+    public static final String COL_2 = "FECHA";
+    public static final String COL_3 = "HORA";
+    public static final String COL_4 = "PESO";
+    public static final String COL_5 = "DIASTOLICA";
+    public static final String COL_6 = "SISTOLICA";
 
-   //Uno de los 3 Constructores del Constructor padre (SQLiteOpenHelper)
+    //Uno de los 3 Constructores del Constructor padre (SQLiteOpenHelper)
     /*public DatabaseHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
     }*/
 
     //'Harcodeamos' 3 argumentos: name, factory, version
     public DatabaseHelper(Context context) {
-       super(context, DATABASE_NAME, null, 1);
+        super(context, DATABASE_NAME, null, 1);
         Log.d("DATABASE", "PRIMERO - CONSTRUCTOR");
     }
 
@@ -54,11 +56,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         StringBuilder strSQL = new StringBuilder();
 
-        strSQL.append("CREATE TABLE").append(AMIGOS_TABLE).append(" ").append(" (")
+        strSQL.append("CREATE TABLE").append(MEDICDATA_TABLE).append(" ").append(" (")
                 .append(COL_1).append(" INTEGER PRIMARY KEY AUTOINCREMENT, ")
-                .append(COL_2).append(" TEXT NOT NULL, ")
-                .append(COL_3).append(" TEXT NOT NULL, ")
-                .append(COL_4).append(" TEXT")
+                .append(COL_2).append(" TEXT, ")
+                .append(COL_3).append(" TEXT, ")
+                .append(COL_4).append(" REAL, ")
+                .append(COL_5).append(" REAL, ")
+                .append(COL_6).append(" REAL")
                 .append(")");
 
         Log.d("DATABASE", "TERCERO - ONCREATE");
@@ -73,12 +77,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         //Entramos aquí cuando se detecta un cambio de versión en la base de datos
         //Normalmente esto conlleva la creación de nuevas tablas o columnas en tablas ya existentes
         //DROP TABLE elimina la tabla y "onCreate" vuelve a crear el esquema desde cero
-        db.execSQL("DROP TABLE IF EXISTS " + AMIGOS_TABLE);
+        db.execSQL("DROP TABLE IF EXISTS " + MEDICDATA_TABLE);
         onCreate(db);
     }
 
     //Métodos para realizar operaciones CRUD (Create, Read, Update, Delete)
-    public boolean insertData(String nombre, String apellido1, String apellido2){
+    public boolean insertData(String fecha, String hora, double peso, double diastolica, double sistolica){
 
         //Necesito una referencia a la base de datos como tal
         SQLiteDatabase db = getWritableDatabase(); // El método 'getWritableDatabase()' nos da una referencia SÍ o SÍ. Si existe, ésa misma, y sino nos creará una nueva
@@ -87,11 +91,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         //Objeto específico de SQLite. Contenedor de valores: valores a insertar en la tabla.
         ContentValues contentValues = new ContentValues();
 
-        contentValues.put(COL_2, nombre);
-        contentValues.put(COL_3, apellido1);
-        contentValues.put(COL_4, apellido2);
+        contentValues.put(COL_2, fecha);
+        contentValues.put(COL_3, hora);
+        contentValues.put(COL_4, peso);
+        contentValues.put(COL_5, diastolica);
+        contentValues.put(COL_6, sistolica);
 
-        long resultado = db.insert(AMIGOS_TABLE, null, contentValues);
+        long resultado = db.insert(MEDICDATA_TABLE, null, contentValues);
 
         //Si 'resultado' es igual a -1 es que algo ha ido mal
         //Si 'resultado' es mayor o igual a 0, indicará el número de registros afectados
@@ -106,7 +112,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         // 'selectionArgs' es un array de Strings -> Array[]
         // En la consulta pueden haber ?s que serán sustituidos por los valores de este array de String
-        Cursor cursor = db.rawQuery("SELECT * FROM "+ AMIGOS_TABLE, null);
+        Cursor cursor = db.rawQuery("SELECT * FROM " + MEDICDATA_TABLE, null);
 
         //Ejemplo
         // SELECT * FROM AMIGOS WHERE nombre=? AND apellido LIKE '?%';

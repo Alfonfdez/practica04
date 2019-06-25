@@ -12,6 +12,7 @@
     <string name="latitud">Latitud</string>
 
     <string name="enviar">Enviar</string>
+    <string name="listar">Listar</string>
 
     <!-- Place Holders para Formulario -->
     <string name="diastolicaPlaceHolder">000</string>

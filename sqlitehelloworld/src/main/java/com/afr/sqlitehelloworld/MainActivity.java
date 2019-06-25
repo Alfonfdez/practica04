@@ -1,11 +1,15 @@
 package com.afr.sqlitehelloworld;
 
+import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -52,9 +56,35 @@ public class MainActivity extends AppCompatActivity {
 
         button2.setOnClickListener(new View.OnClickListener() {
 
+
+
             @Override
             public void onClick(View v) {
 
+                Log.d("DATABASE","HOLA");
+
+                Cursor cursor = myDB.getAll();
+
+                // ¿Qué hace un cursor aquí? (no debería, pero va a funcionar)
+
+                //Lo que debería SER
+                //List<Amigo> amigos = interface.getAll();
+
+                if(cursor == null || cursor.getCount() == 0){
+                    return;
+                }
+
+                while(cursor.moveToNext()){
+
+                    int codigo = cursor.getInt(0);
+                    String nombre = cursor.getString(1);
+                    String apellido1 = cursor.getString(2);
+                    String apellido2 = cursor.getString(3);
+
+                    String amigo = codigo + ": " + nombre + " " + apellido1 + " " + apellido2;
+
+                    Log.d("DATABASE", amigo);
+                }
             }
         });
     }

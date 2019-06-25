@@ -1,12 +1,16 @@
 package com.afr.medicdata;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
+import com.afr.medicdata.database.DatabaseHelper;
 import com.afr.medicdata.model.Lectura;
 import com.afr.medicdata.model.LecturaServices;
 import com.afr.medicdata.model.LecturaServicesImpl;
@@ -18,6 +22,15 @@ public class FormularioActivity extends AppCompatActivity {
     //I - Declarar variables
     private LecturaServices lecturaServices;
 
+    private DatabaseHelper myDB;
+
+    private EditText editPeso;
+    private EditText editDiastolica;
+    private EditText editSistolica;
+
+    private Button button1;
+    private Button button2;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +38,69 @@ public class FormularioActivity extends AppCompatActivity {
         setContentView(R.layout.activity_formulario);
 
         lecturaServices = LecturaServicesImpl.getInstance();
+
+        // II - Asignar las variables
+        editPeso = (EditText) findViewById(R.id.idEntradaPeso);
+        editDiastolica = (EditText) findViewById(R.id.idEntradaDiastolica);
+        editSistolica = (EditText) findViewById(R.id.idEntradaSistolica);
+
+        button1 = (Button) findViewById(R.id.idBotonEnviar);
+        button2 = (Button) findViewById(R.id.idBotonListar);
+
+        myDB = new DatabaseHelper(this);
+
+        button1.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                String fecha = "";
+                String hora = "";
+
+                double peso = Double.parseDouble(editPeso.getText().toString());
+                double diastolica = Double.parseDouble(editDiastolica.getText().toString());
+                double sistolica = Double.parseDouble(editSistolica.getText().toString());
+
+                String queryCompleta = fecha + " " + hora + " " + peso + " " + diastolica + " " + sistolica;
+                Toast.makeText(FormularioActivity.this, queryCompleta, Toast.LENGTH_SHORT).show();
+
+                myDB.insertData(fecha, hora, peso, diastolica, sistolica);
+            }
+        });
+
+
+        button2.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                Cursor cursor = myDB.getAll();
+
+                // ¿Qué hace un cursor aquí? (no debería, pero va a funcionar)
+
+                //Lo que debería SER
+                //List<Amigo> amigos = interface.getAll();
+
+                if(cursor == null || cursor.getCount() == 0){
+                    return;
+                }
+
+                while(cursor.moveToNext()){
+
+                    int codigo = cursor.getInt(0);
+                    String fecha = cursor.getString(1);
+                    String hora = cursor.getString(2);
+                    double peso = cursor.getDouble(3);
+                    double diastolica = cursor.getDouble(4);
+                    double sistolica = cursor.getDouble(5);
+
+                    String query = codigo + ": " + fecha + " " + hora + " " + peso + " " + diastolica + " " + sistolica;
+
+                    Log.d("DATABASE", query);
+                }
+            }
+        });
+
     }
 
     public void enviar(View view){

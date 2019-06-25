@@ -53,30 +53,43 @@ public class Adaptador extends BaseAdapter {
 
         final View vista = inflater.inflate(R.layout.lectura_row, null);
 
-        //TextView fecha = (TextView) vista.findViewById(R.id.idFecha);
-        //TextView hora = (TextView) vista.findViewById(R.id.idHora);
+        //Asignamos las variables
+        TextView fecha = (TextView) vista.findViewById(R.id.id_tvFecha);
+        TextView hora = (TextView) vista.findViewById(R.id.id_tvHora);
+
+        TextView nombre = (TextView) vista.findViewById(R.id.id_tvNombre);
+        TextView apellido1 = (TextView) vista.findViewById(R.id.id_tvApellido1);
+        TextView apellido2 = (TextView) vista.findViewById(R.id.id_tvApellido2);
+
+        TextView motivo = (TextView) vista.findViewById(R.id.id_tvMotivo);
+        TextView importe = (TextView) vista.findViewById(R.id.id_tvImporte);
+        TextView aceptada = (TextView) vista.findViewById(R.id.id_tvAceptada);
+
+        TextView tipo = (TextView) vista.findViewById(R.id.id_tvTipo);
+        TextView observaciones = (TextView) vista.findViewById(R.id.id_tvObservaciones);
 
 
-
-       /* TextView fecha = (TextView) vista.findViewById(R.id.idFecha);
-        TextView hora = (TextView) vista.findViewById(R.id.idHora);
-        TextView peso = (TextView) vista.findViewById(R.id.idEntradaPeso);
-        TextView diastolica = (TextView) vista.findViewById(R.id.idDiastolica);
-        TextView sistolica = (TextView) vista.findViewById(R.id.idSistolica);
-
-        Lectura lectura = lecturas.get(i);
+        Multa multa = multas.get(i);
 
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         SimpleDateFormat sdf2 = new SimpleDateFormat("HH:mm");
 
-        String strParteFecha = sdf.format(lectura.getFecha());
-        String strParteHora = sdf2.format(lectura.getHora());
+        String strParteFecha = sdf.format(multa.getFechaHora());
+        String strParteHora = sdf2.format(multa.getFechaHora());
 
         fecha.setText(strParteFecha);
         hora.setText(strParteHora);
-        peso.setText(String.valueOf(lectura.getPeso()));
-        diastolica.setText(String.valueOf(lectura.getDiastolica()));
-        sistolica.setText(String.valueOf(lectura.getSistolica()));*/
+
+        nombre.setText(String.valueOf(multa.getAgente().getNombre()));
+        apellido1.setText(String.valueOf(multa.getAgente().getApellido1()));
+        apellido2.setText(String.valueOf(multa.getAgente().getApellido2()));
+
+        motivo.setText(String.valueOf(multa.getMotivo()));
+        importe.setText(String.valueOf(multa.getImporte()));
+        aceptada.setText(String.valueOf(multa.isAceptada()));
+
+        tipo.setText(String.valueOf(multa.getTipo()));
+        observaciones.setText(String.valueOf(multa.getObservaciones()));
 
         return vista;
     }
