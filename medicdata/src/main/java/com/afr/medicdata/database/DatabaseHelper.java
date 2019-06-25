@@ -56,7 +56,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         StringBuilder strSQL = new StringBuilder();
 
-        strSQL.append("CREATE TABLE").append(MEDICDATA_TABLE).append(" ").append(" (")
+        strSQL.append("CREATE TABLE ").append(MEDICDATA_TABLE).append(" ").append(" (")
                 .append(COL_1).append(" INTEGER PRIMARY KEY AUTOINCREMENT, ")
                 .append(COL_2).append(" TEXT, ")
                 .append(COL_3).append(" TEXT, ")

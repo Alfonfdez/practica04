@@ -15,6 +15,7 @@ import com.afr.medicdata.model.Lectura;
 import com.afr.medicdata.model.LecturaServices;
 import com.afr.medicdata.model.LecturaServicesImpl;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class FormularioActivity extends AppCompatActivity {
@@ -34,6 +35,7 @@ public class FormularioActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_formulario);
 
@@ -49,13 +51,20 @@ public class FormularioActivity extends AppCompatActivity {
 
         myDB = new DatabaseHelper(this);
 
+
         button1.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
 
-                String fecha = "";
-                String hora = "";
+                Date fecha = new Date();
+                Date hora = new Date();
+
+                SimpleDateFormat sdfFecha = new SimpleDateFormat("dd/MM/yyyy");
+                SimpleDateFormat sdfHora = new SimpleDateFormat("HH:mm");
+
+                String strParteFecha = sdfFecha.format(fecha);
+                String strParteHora = sdfHora.format(hora);
 
                 double peso = Double.parseDouble(editPeso.getText().toString());
                 double diastolica = Double.parseDouble(editDiastolica.getText().toString());
@@ -64,7 +73,7 @@ public class FormularioActivity extends AppCompatActivity {
                 String queryCompleta = fecha + " " + hora + " " + peso + " " + diastolica + " " + sistolica;
                 Toast.makeText(FormularioActivity.this, queryCompleta, Toast.LENGTH_SHORT).show();
 
-                myDB.insertData(fecha, hora, peso, diastolica, sistolica);
+                myDB.insertData(strParteFecha, strParteHora, peso, diastolica, sistolica);
             }
         });
 
@@ -98,12 +107,15 @@ public class FormularioActivity extends AppCompatActivity {
 
                     Log.d("DATABASE", query);
                 }
+
             }
+
+
         });
 
     }
 
-    public void enviar(View view){
+    /*public void enviar(View view){
         //Comprobar si entramos
 
         Log.d("******","ENTRAMOS EN ENVIAR");
@@ -127,5 +139,5 @@ public class FormularioActivity extends AppCompatActivity {
 
         // 4) Vamos a cambiar de 'activity'
         startActivity(intent);
-    }
+    }*/
 }
