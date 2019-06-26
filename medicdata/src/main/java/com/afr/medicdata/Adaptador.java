@@ -19,16 +19,19 @@ public class Adaptador extends BaseAdapter {
     private LayoutInflater inflater = null;
     private List<Lectura> lecturas;
     private Context contexto;
-    private LecturaServicesSQLite lecturaServicesSQLite;
+    //private LecturaServicesSQLite lecturaServicesSQLite;
+    public FormularioActivity formularioActivity;
 
 
     public Adaptador(Context contexto){
         this.contexto = contexto;
         inflater = (LayoutInflater) contexto.getSystemService(contexto.LAYOUT_INFLATER_SERVICE);
-        lecturaServicesSQLite = new LecturaServicesSQLite(contexto);
+        //lecturaServicesSQLite = new LecturaServicesSQLite(contexto);
+        //lecturas = lecturaServicesSQLite.getAll();
         //lecturas = LecturaServicesImpl.getInstance().getAll();
         //lecturas = LecturaServicesSQLite.getInstance().getAll();
-        lecturas = lecturaServicesSQLite.getAll();
+
+        lecturas = formularioActivity.lecturaServicesSQLite.getAll();
     }
 
     //Métodos implementados de la superclase "BaseAdapter"

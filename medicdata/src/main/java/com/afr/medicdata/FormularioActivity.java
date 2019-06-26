@@ -23,7 +23,7 @@ public class FormularioActivity extends AppCompatActivity {
 
     //I - Declarar variables
     //private LecturaServices lecturaServices;
-    private LecturaServicesSQLite lecturaServicesSQLite;
+    public LecturaServicesSQLite lecturaServicesSQLite;
     //private DatabaseHelper myDB;
 
     private EditText editPeso;

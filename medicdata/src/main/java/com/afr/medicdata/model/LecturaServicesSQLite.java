@@ -82,7 +82,7 @@ public class LecturaServicesSQLite implements LecturaServices{
 
         while(cursor.moveToNext()){
 
-            //int codigo = cursor.getInt(0);
+            int codigo = cursor.getInt(0);
             String fecha = cursor.getString(1);
             String hora = cursor.getString(2);
             double peso = cursor.getDouble(3);
