@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.afr.medicdata.model.Lectura;
 import com.afr.medicdata.model.LecturaServicesImpl;
+import com.afr.medicdata.model.LecturaServicesSQLite;
 
 import java.text.SimpleDateFormat;
 import java.util.List;
@@ -18,12 +19,16 @@ public class Adaptador extends BaseAdapter {
     private LayoutInflater inflater = null;
     private List<Lectura> lecturas;
     private Context contexto;
+    private LecturaServicesSQLite lecturaServicesSQLite;
 
 
     public Adaptador(Context contexto){
         this.contexto = contexto;
         inflater = (LayoutInflater) contexto.getSystemService(contexto.LAYOUT_INFLATER_SERVICE);
-        lecturas = LecturaServicesImpl.getInstance().getAll();
+        lecturaServicesSQLite = new LecturaServicesSQLite(contexto);
+        //lecturas = LecturaServicesImpl.getInstance().getAll();
+        //lecturas = LecturaServicesSQLite.getInstance().getAll();
+        lecturas = lecturaServicesSQLite.getAll();
     }
 
     //Métodos implementados de la superclase "BaseAdapter"

@@ -14,6 +14,7 @@ import com.afr.medicdata.database.DatabaseHelper;
 import com.afr.medicdata.model.Lectura;
 import com.afr.medicdata.model.LecturaServices;
 import com.afr.medicdata.model.LecturaServicesImpl;
+import com.afr.medicdata.model.LecturaServicesSQLite;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -21,16 +22,16 @@ import java.util.Date;
 public class FormularioActivity extends AppCompatActivity {
 
     //I - Declarar variables
-    private LecturaServices lecturaServices;
-
-    private DatabaseHelper myDB;
+    //private LecturaServices lecturaServices;
+    private LecturaServicesSQLite lecturaServicesSQLite;
+    //private DatabaseHelper myDB;
 
     private EditText editPeso;
     private EditText editDiastolica;
     private EditText editSistolica;
 
     private Button button1;
-    private Button button2;
+    //private Button button2;
 
 
     @Override
@@ -39,7 +40,12 @@ public class FormularioActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_formulario);
 
-        lecturaServices = LecturaServicesImpl.getInstance();
+        lecturaServicesSQLite = new LecturaServicesSQLite(this);
+
+        //lecturaServices = new LecturaServicesSQLite(this);
+
+        //lecturaServices = LecturaServicesImpl.getInstance();
+        //lecturaServices = LecturaServicesSQLite.getInstance();
 
         // II - Asignar las variables
         editPeso = (EditText) findViewById(R.id.idEntradaPeso);
@@ -47,9 +53,9 @@ public class FormularioActivity extends AppCompatActivity {
         editSistolica = (EditText) findViewById(R.id.idEntradaSistolica);
 
         button1 = (Button) findViewById(R.id.idBotonEnviar);
-        button2 = (Button) findViewById(R.id.idBotonListar);
+        //button2 = (Button) findViewById(R.id.idBotonListar);
 
-        myDB = new DatabaseHelper(this);
+        //myDB = new DatabaseHelper(this);
 
 
         button1.setOnClickListener(new View.OnClickListener() {
@@ -60,11 +66,11 @@ public class FormularioActivity extends AppCompatActivity {
                 Date fecha = new Date();
                 Date hora = new Date();
 
-                SimpleDateFormat sdfFecha = new SimpleDateFormat("dd/MM/yyyy");
+                /*SimpleDateFormat sdfFecha = new SimpleDateFormat("dd/MM/yyyy");
                 SimpleDateFormat sdfHora = new SimpleDateFormat("HH:mm");
 
                 String strParteFecha = sdfFecha.format(fecha);
-                String strParteHora = sdfHora.format(hora);
+                String strParteHora = sdfHora.format(hora);*/
 
                 double peso = Double.parseDouble(editPeso.getText().toString());
                 double diastolica = Double.parseDouble(editDiastolica.getText().toString());
@@ -73,17 +79,21 @@ public class FormularioActivity extends AppCompatActivity {
                 String queryCompleta = fecha + " " + hora + " " + peso + " " + diastolica + " " + sistolica;
                 Toast.makeText(FormularioActivity.this, queryCompleta, Toast.LENGTH_SHORT).show();
 
-                myDB.insertData(strParteFecha, strParteHora, peso, diastolica, sistolica);
+
+                Lectura lectura = new Lectura(fecha, hora, peso, diastolica, sistolica);
+
+                lecturaServicesSQLite.create(lectura);
+                //myDB.insertData(strParteFecha, strParteHora, peso, diastolica, sistolica);
             }
         });
 
 
-        button2.setOnClickListener(new View.OnClickListener() {
+        /*button2.setOnClickListener(new View.OnClickListener() {
 
             @Override
-            public void onClick(View v) {
+            public void onClick(View v) {*/
 
-                Cursor cursor = myDB.getAll();
+                /*Cursor cursor = myDB.getAll();
 
                 // ¿Qué hace un cursor aquí? (no debería, pero va a funcionar)
 
@@ -106,14 +116,20 @@ public class FormularioActivity extends AppCompatActivity {
                     String query = codigo + ": " + fecha + " " + hora + " " + peso + " " + diastolica + " " + sistolica;
 
                     Log.d("DATABASE", query);
-                }
-
-            }
+                }*/
 
 
-        });
+            //}
+
+        //})
 
     }
+
+    public void listar(View view){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
 
     /*public void enviar(View view){
         //Comprobar si entramos

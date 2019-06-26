@@ -26,7 +26,7 @@ public class Lectura implements Serializable {
 
     //Constructores con argumentos
     //public Lectura(Date fechaHora, double peso, double diastolica, double sistolica, double longitud, double latitud) {
-        //this.fechaHora = fechaHora;
+    //this.fechaHora = fechaHora;
     public Lectura(Date fecha, Date hora, double peso, double diastolica, double sistolica, double longitud, double latitud) {
         this.fecha = fecha;
         this.hora = hora;

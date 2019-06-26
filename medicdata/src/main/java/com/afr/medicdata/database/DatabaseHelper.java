@@ -32,6 +32,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         super(context, name, factory, version);
     }*/
 
+    //Constructor
     //'Harcodeamos' 3 argumentos: name, factory, version
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, 1);
