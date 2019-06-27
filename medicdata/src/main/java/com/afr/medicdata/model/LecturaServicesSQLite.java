@@ -15,15 +15,17 @@ public class LecturaServicesSQLite implements LecturaServices{
 
     //private static final LecturaServicesSQLite INSTANCE = new LecturaServicesSQLite();
 
+    private Context contexto;
     private DatabaseHelper myDB;
+
 
     //Constructores
     /*public LecturaServicesSQLite(){
 
     }*/
 
-    public LecturaServicesSQLite(Context contexto){
-        //this.contexto = contexto;
+    public LecturaServicesSQLite(Context context){
+        this.contexto = context;
         myDB = new DatabaseHelper(contexto);
     }
 
@@ -35,7 +37,7 @@ public class LecturaServicesSQLite implements LecturaServices{
     @Override
     public Lectura create(Lectura lectura) {
 
-        SimpleDateFormat sdfFecha = new SimpleDateFormat("dd/MM/yyyy");
+        /*SimpleDateFormat sdfFecha = new SimpleDateFormat("dd/MM/yyyy");
         SimpleDateFormat sdfHora = new SimpleDateFormat("HH:mm");
 
         Date fecha = lectura.getFecha();
@@ -50,35 +52,39 @@ public class LecturaServicesSQLite implements LecturaServices{
 
         myDB.insertData(strParteFecha, strParteHora, peso, diastolica, sistolica);
 
-        return lectura;
+        return lectura;*/
+        return myDB.createLectura(lectura);
     }
 
     @Override
     public Lectura read(Integer codigo) {
+        //TO-DO
         return null;
     }
 
     @Override
     public Lectura update(Lectura lectura) {
+        //TO-DO
         return null;
     }
 
     @Override
     public boolean delete(Integer codigo) {
+        //TO-DO
         return false;
     }
 
     @Override
     public List<Lectura> getAll() {
 
-        List<Lectura> lecturas = new ArrayList<>();
+        /*List<Lectura> lecturas = new ArrayList<>();
 
         //FALLA AQUÍ
         Cursor cursor = myDB.getAll();
 
-        /*if(cursor == null || cursor.getCount() == 0){
-            return lecturas;
-        }*/
+        //if(cursor == null || cursor.getCount() == 0){
+            //return lecturas;
+        //}
 
         while(cursor.moveToNext()){
 
@@ -108,11 +114,15 @@ public class LecturaServicesSQLite implements LecturaServices{
 
         }
 
-        return lecturas;
+        return lecturas;*/
+
+        return myDB.getAll();
     }
 
     @Override
     public List<Lectura> getBetweenDates(Date fecha1, Date fecha2) {
+
+        //TO-DO
         return null;
     }
 }

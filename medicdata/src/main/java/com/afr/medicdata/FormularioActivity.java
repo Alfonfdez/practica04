@@ -1,36 +1,30 @@
 package com.afr.medicdata;
 
 import android.content.Intent;
-import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
-import com.afr.medicdata.database.DatabaseHelper;
 import com.afr.medicdata.model.Lectura;
 import com.afr.medicdata.model.LecturaServices;
-import com.afr.medicdata.model.LecturaServicesImpl;
 import com.afr.medicdata.model.LecturaServicesSQLite;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class FormularioActivity extends AppCompatActivity {
 
     //I - Declarar variables
-    //private LecturaServices lecturaServices;
-    public LecturaServicesSQLite lecturaServicesSQLite;
+    private LecturaServices lecturaServices;
+    //public LecturaServicesSQLite lecturaServicesSQLite;
     //private DatabaseHelper myDB;
 
     private EditText editPeso;
     private EditText editDiastolica;
     private EditText editSistolica;
 
-    private Button button1;
+    //private Button button1;
     //private Button button2;
 
 
@@ -40,19 +34,15 @@ public class FormularioActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_formulario);
 
-        lecturaServicesSQLite = new LecturaServicesSQLite(this);
+        lecturaServices = new LecturaServicesSQLite(this);
+        //lecturaServicesSQLite = new LecturaServicesSQLite(this);
 
         //lecturaServices = new LecturaServicesSQLite(this);
 
         //lecturaServices = LecturaServicesImpl.getInstance();
         //lecturaServices = LecturaServicesSQLite.getInstance();
 
-        // II - Asignar las variables
-        editPeso = (EditText) findViewById(R.id.idEntradaPeso);
-        editDiastolica = (EditText) findViewById(R.id.idEntradaDiastolica);
-        editSistolica = (EditText) findViewById(R.id.idEntradaSistolica);
-
-        button1 = (Button) findViewById(R.id.idBotonEnviar);
+        /*button1 = (Button) findViewById(R.id.idBotonEnviar);
         //button2 = (Button) findViewById(R.id.idBotonListar);
 
         //myDB = new DatabaseHelper(this);
@@ -66,11 +56,11 @@ public class FormularioActivity extends AppCompatActivity {
                 Date fecha = new Date();
                 Date hora = new Date();
 
-                /*SimpleDateFormat sdfFecha = new SimpleDateFormat("dd/MM/yyyy");
+                //SimpleDateFormat sdfFecha = new SimpleDateFormat("dd/MM/yyyy");
                 SimpleDateFormat sdfHora = new SimpleDateFormat("HH:mm");
 
                 String strParteFecha = sdfFecha.format(fecha);
-                String strParteHora = sdfHora.format(hora);*/
+                String strParteHora = sdfHora.format(hora);
 
                 double peso = Double.parseDouble(editPeso.getText().toString());
                 double diastolica = Double.parseDouble(editDiastolica.getText().toString());
@@ -85,7 +75,7 @@ public class FormularioActivity extends AppCompatActivity {
                 lecturaServicesSQLite.create(lectura);
                 //myDB.insertData(strParteFecha, strParteHora, peso, diastolica, sistolica);
             }
-        });
+        });*/
 
 
         /*button2.setOnClickListener(new View.OnClickListener() {
@@ -125,20 +115,21 @@ public class FormularioActivity extends AppCompatActivity {
 
     }
 
-    public void listar(View view){
-        Intent intent = new Intent(this, MainActivity.class);
+    /*public void listar(View view){
+        Intent intent = new Intent(this, ListActivity.class);
         startActivity(intent);
-    }
+    }*/
 
 
-    /*public void enviar(View view){
+    public void enviar(View view){
         //Comprobar si entramos
 
-        Log.d("******","ENTRAMOS EN ENVIAR");
+        Log.d("DATABASE","ENTRAMOS EN ENVIAR");
 
-        EditText editPeso = (EditText) findViewById(R.id.idEntradaPeso);
-        EditText editDiastolica = (EditText) findViewById(R.id.idEntradaDiastolica);
-        EditText editSistolica = (EditText) findViewById(R.id.idEntradaSistolica);
+        // II - Asignar las variables
+        editPeso = (EditText) findViewById(R.id.idEntradaPeso);
+        editDiastolica = (EditText) findViewById(R.id.idEntradaDiastolica);
+        editSistolica = (EditText) findViewById(R.id.idEntradaSistolica);
 
         double peso = Double.parseDouble(editPeso.getText().toString());
         double diastolica = Double.parseDouble(editDiastolica.getText().toString());
@@ -151,9 +142,9 @@ public class FormularioActivity extends AppCompatActivity {
         lecturaServices.create(lectura);
 
         // 3) Vamos a instanciar un 'intent'
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, ListActivity.class);
 
         // 4) Vamos a cambiar de 'activity'
         startActivity(intent);
-    }*/
+    }
 }

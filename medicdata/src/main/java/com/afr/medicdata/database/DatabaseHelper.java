@@ -70,11 +70,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         strSQL.append("CREATE TABLE ").append(MEDICDATA_TABLE).append(" ").append(" (")
                 .append(COL_1).append(" INTEGER PRIMARY KEY AUTOINCREMENT, ")
-                .append(COL_2).append(" TEXT, ")
-                .append(COL_3).append(" TEXT, ")
-                .append(COL_4).append(" REAL, ")
-                .append(COL_5).append(" REAL, ")
-                .append(COL_6).append(" REAL")
+                .append(COL_2).append(" TEXT NOT NULL, ")
+                .append(COL_3).append(" TEXT NOT NULL, ")
+                .append(COL_4).append(" REAL NOT NULL, ")
+                .append(COL_5).append(" REAL NOT NULL, ")
+                .append(COL_6).append(" REAL NOT NULL")
                 .append(")");
 
         Log.d("DATABASE", "TERCERO - ONCREATE");
@@ -97,10 +97,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
     //Métodos para ser implementados por otras clases
-    public Lectura createLectura(Date fecha, Date hora, double peso, double diastolica, double sistolica){
+    /*public Lectura createLectura(Date fecha, Date hora, double peso, double diastolica, double sistolica){
 
         return null;
-    }
+    }*/
 
 
     public Lectura createLectura(Lectura lectura){
@@ -138,14 +138,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         if (cursor != null && cursor.getCount() > 0){   // Sabemos que hay 1 registro!
             cursor.moveToNext();                        // Situamos el puntero en ese registro
 
-            int code = cursor.getInt(1);
-            Date fecha = getDateFromString(cursor.getString(2));
-            Date hora = getHourFromString(cursor.getString(3));
-            double peso = cursor.getDouble(4);
-            double diastolica = cursor.getDouble(5);
-            double sistolica = cursor.getDouble(6);
+            int code = cursor.getInt(0);
+            Date fecha = getDateFromString(cursor.getString(1));
+            Date hora = getHourFromString(cursor.getString(2));
+            double peso = cursor.getDouble(3);
+            double diastolica = cursor.getDouble(4);
+            double sistolica = cursor.getDouble(5);
 
-            //lectura = new Lectura(fecha,hora,peso,diastolica,sistolica);
+            lectura = new Lectura(fecha,hora,peso,diastolica,sistolica);
             lectura.setCodigo(code);
 
         }
@@ -154,18 +154,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public Cursor getAll2(){
+    //Coger Fecha en orden descendente
+    /*public Cursor getAll2(){
         SQLiteDatabase db = getWritableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM " + MEDICDATA_TABLE + " ORDER BY " + COL_1 + " DESC", null);
 
         return cursor;
-    }
+    }*/
 
     public List<Lectura> getAll(){
 
         SQLiteDatabase db = getWritableDatabase();
 
-        Cursor cursor = db.rawQuery("SELECT * FROM " + MEDICDATA_TABLE + " ORDER BY " + COL_1 + " DESC", null);
+        //Cursor cursor = db.rawQuery("SELECT * FROM " + MEDICDATA_TABLE + " ORDER BY " + COL_1 + " DESC", null);
+        Cursor cursor = db.rawQuery("SELECT * FROM " + MEDICDATA_TABLE, null);
 
         String[] columnas = new String[]{COL_1,COL_2,COL_3,COL_4,COL_5,COL_6};
 
@@ -175,15 +177,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
             while (cursor.moveToNext()){
 
-                Integer codigo = cursor.getInt(1);
-                String strFecha = cursor.getString(2); // La fecha vive como String "dd/MM/yyyy HH:mm"
+                Integer codigo = cursor.getInt(0);
+                String strFecha = cursor.getString(1); // La fecha vive como String "dd/MM/yyyy HH:mm"
                 Date fecha = getDateFromString(strFecha);
-                String strHora = cursor.getString(3); // La fecha vive como String "dd/MM/yyyy HH:mm"
+                String strHora = cursor.getString(2); // La fecha vive como String "dd/MM/yyyy HH:mm"
                 Date hora = getHourFromString(strHora);
-                double peso = cursor.getDouble(4);
-                double diastolica = cursor.getDouble(5);
-                double sistolica = cursor.getDouble(6);
-
+                double peso = cursor.getDouble(3);
+                double diastolica = cursor.getDouble(4);
+                double sistolica = cursor.getDouble(5);
 
                 Lectura lectura = new Lectura(fecha,hora,peso,diastolica,sistolica);
                 lectura.setCodigo(codigo);
