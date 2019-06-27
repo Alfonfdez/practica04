@@ -7,6 +7,14 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import com.afr.medicdata.model.Lectura;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
 //DatabaseHelper ES-UN SQLiteOpenHelper
 public class DatabaseHelper extends SQLiteOpenHelper {
 
@@ -26,6 +34,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String COL_4 = "PESO";
     public static final String COL_5 = "DIASTOLICA";
     public static final String COL_6 = "SISTOLICA";
+
+    private static final SimpleDateFormat SDF_FECHA = new SimpleDateFormat("dd/MM/yyyy");
+    private static final SimpleDateFormat SDF_HORA = new SimpleDateFormat("HH:mm");
 
     //Uno de los 3 Constructores del Constructor padre (SQLiteOpenHelper)
     /*public DatabaseHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
@@ -69,7 +80,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Log.d("DATABASE", "TERCERO - ONCREATE");
         Log.d("DATABASE", strSQL.toString());
 
-        db.execSQL(strSQL.toString());
+        String strDDL = strSQL.toString();
+
+        db.execSQL(strDDL);
     }
 
     @Override
@@ -81,6 +94,107 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + MEDICDATA_TABLE);
         onCreate(db);
     }
+
+
+    //Métodos para ser implementados por otras clases
+    public Lectura createLectura(Date fecha, Date hora, double peso, double diastolica, double sistolica){
+
+        return null;
+    }
+
+
+    public Lectura createLectura(Lectura lectura){
+
+        //Necesito una referencia a la base de datos como tal
+        SQLiteDatabase db = getWritableDatabase(); // El método 'getWritableDatabase()' nos da una referencia SÍ o SÍ. Si existe, ésa misma, y sino nos creará una nueva
+
+        ContentValues contentValues = new ContentValues();
+
+        contentValues.put(COL_2, getStringFromDate(lectura.getFecha()));
+        contentValues.put(COL_3, getStringFromHour(lectura.getHora()));
+        contentValues.put(COL_4, lectura.getPeso());
+        contentValues.put(COL_5, lectura.getDiastolica());
+        contentValues.put(COL_6, lectura.getSistolica());
+
+        // 'nullColumnHack' se utiliza cuando pretendemos insertar un registro con valores "null". En ese caso 'contentValues' estará vacío (SIN 'put')
+        long resultado = db.insert(MEDICDATA_TABLE, null, contentValues);
+
+        //A la lectura que me llegaba sin código, le asigno un código y la devuelvo
+        lectura.setCodigo((int)resultado);
+
+        return resultado == -1 ? null : lectura;
+    }
+
+    public Lectura getLectura(int codigo){
+
+        SQLiteDatabase db = getWritableDatabase();
+
+        String[] args = new String[] {String.valueOf(codigo)};
+
+        Cursor cursor = db.rawQuery("SELECT * FROM " + MEDICDATA_TABLE + " WHERE CODIGO = ?", args);
+
+        Lectura lectura = null;
+
+        if (cursor != null && cursor.getCount() > 0){   // Sabemos que hay 1 registro!
+            cursor.moveToNext();                        // Situamos el puntero en ese registro
+
+            int code = cursor.getInt(1);
+            Date fecha = getDateFromString(cursor.getString(2));
+            Date hora = getHourFromString(cursor.getString(3));
+            double peso = cursor.getDouble(4);
+            double diastolica = cursor.getDouble(5);
+            double sistolica = cursor.getDouble(6);
+
+            //lectura = new Lectura(fecha,hora,peso,diastolica,sistolica);
+            lectura.setCodigo(code);
+
+        }
+
+        return lectura;
+
+    }
+
+    public Cursor getAll2(){
+        SQLiteDatabase db = getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + MEDICDATA_TABLE + " ORDER BY " + COL_1 + " DESC", null);
+
+        return cursor;
+    }
+
+    public List<Lectura> getAll(){
+
+        SQLiteDatabase db = getWritableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT * FROM " + MEDICDATA_TABLE + " ORDER BY " + COL_1 + " DESC", null);
+
+        String[] columnas = new String[]{COL_1,COL_2,COL_3,COL_4,COL_5,COL_6};
+
+        List<Lectura> lecturas = new ArrayList<Lectura>();
+
+        if (cursor != null && cursor.getCount() > 0){
+
+            while (cursor.moveToNext()){
+
+                Integer codigo = cursor.getInt(1);
+                String strFecha = cursor.getString(2); // La fecha vive como String "dd/MM/yyyy HH:mm"
+                Date fecha = getDateFromString(strFecha);
+                String strHora = cursor.getString(3); // La fecha vive como String "dd/MM/yyyy HH:mm"
+                Date hora = getHourFromString(strHora);
+                double peso = cursor.getDouble(4);
+                double diastolica = cursor.getDouble(5);
+                double sistolica = cursor.getDouble(6);
+
+
+                Lectura lectura = new Lectura(fecha,hora,peso,diastolica,sistolica);
+                lectura.setCodigo(codigo);
+                lecturas.add(lectura);
+
+            }
+        }
+
+        return lecturas;
+    }
+
 
     //Métodos para realizar operaciones CRUD (Create, Read, Update, Delete)
     public boolean insertData(String fecha, String hora, double peso, double diastolica, double sistolica){
@@ -103,11 +217,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         //Si 'resultado' es igual a -1 es que algo ha ido mal
         //Si 'resultado' es mayor o igual a 0, indicará el número de registros afectados
 
+        Log.d("DATABASE", "INSERT DATA");
+
         return resultado == -1 ? false : true;
     }
 
     //Un 'Cursor' es una tabla virtual
-    public Cursor getAll(){
+    /*public Cursor getAll(){
 
         SQLiteDatabase db = getWritableDatabase();
 
@@ -118,6 +234,58 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         //Ejemplo
         // SELECT * FROM AMIGOS WHERE nombre=? AND apellido LIKE '?%';
         // String[] = {"Adolfo","D"};
+
+        Log.d("DATABASE", "CURSOR GETALL()");
+
         return cursor;
+    }*/
+
+
+
+    //Métodos privados
+    private String getStringFromDate(Date date){
+        return SDF_FECHA.format(date);
     }
+
+    private String getStringFromHour(Date date){
+        return SDF_HORA.format(date);
+    }
+
+    private Date getDateFromString(String strFecha){
+
+        Date date = null;
+        try {
+            date = SDF_FECHA.parse(strFecha);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return date;
+    }
+
+    private Date getHourFromString(String strFecha){
+
+        Date date = null;
+        try {
+            date = SDF_HORA.parse(strFecha);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return date;
+    }
+
+    /*public List<Lectura> getBetweenDates(Date desde, Date hasta){
+
+        List<Lectura> lecturas = getAll();
+
+        List<Lectura> lecturasFiltradas = new ArrayList<Lectura>();
+
+        for (Lectura lectura: lecturas){
+            if (lectura.getFechaHora().after(desde) && lectura.getFechaHora().before(hasta)){
+                // pal saco
+                lecturasFiltradas.add(lectura);
+            }
+        }
+
+        return lecturas;
+    }*/
 }

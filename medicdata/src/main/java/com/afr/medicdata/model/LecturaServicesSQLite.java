@@ -98,8 +98,10 @@ public class LecturaServicesSQLite implements LecturaServices{
                 Date dateHora = new SimpleDateFormat("HH/mm").parse(hora);
 
                 Lectura lectura = new Lectura(dateFecha, dateHora, peso, diastolica, sistolica);
+                lectura.setCodigo(codigo);
 
                 lecturas.add(lectura);
+
             } catch (ParseException e) {
                 e.printStackTrace();
             }
