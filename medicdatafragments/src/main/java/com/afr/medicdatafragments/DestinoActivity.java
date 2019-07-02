@@ -31,13 +31,11 @@ public class DestinoActivity extends AppCompatActivity implements MenuPulsado {
         // Aquí llega la información de boton_pulsado 0, 1 o 2
         // Método 'menu' a implementar del interface 'ComunicaMenu'
         menuSeleccionado(extras.getInt("BOTON_PULSADO"));
-
     }
-
-
 
     @Override
     public void menuSeleccionado(int botonPulsado) {
+
         //Transacción -> carácter atómico: o funciona todas las cosas 100%, o no funciona nada
         FragmentManager fragmentManager = getFragmentManager(); // Ojo importarlo bien!
 
@@ -46,7 +44,6 @@ public class DestinoActivity extends AppCompatActivity implements MenuPulsado {
         // nos pide
         // 1. identificador del contenedor...
         // 2. el fragmento que queremos cargar... hay tres posibilidades.
-
         fragmentTransaction.replace(R.id.destino, fragments[botonPulsado]);
         fragmentTransaction.commit();
     }

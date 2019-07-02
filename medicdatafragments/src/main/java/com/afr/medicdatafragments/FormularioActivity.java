@@ -52,9 +52,9 @@ public class FormularioActivity extends AppCompatActivity {
         lecturaServices.create(lectura);
 
         // 3) Vamos a instanciar un 'intent'
-        Intent intent = new Intent(this, ListActivity.class);
+        //Intent intent = new Intent(this, ListActivity.class);
 
         // 4) Vamos a cambiar de 'activity'
-        startActivity(intent);
+        //startActivity(intent);
     }
 }
