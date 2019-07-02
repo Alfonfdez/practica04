@@ -86,10 +86,10 @@
         android:layout_marginRight="8dp"
         android:text="Fecha"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/horizontalGuideline2"
-        app:layout_constraintEnd_toStartOf="@+id/verticalGuideline2"
         app:layout_constraintStart_toStartOf="@+id/verticalGuideline1"
-        app:layout_constraintTop_toTopOf="@+id/horizontalGuideline1" />
+        app:layout_constraintEnd_toStartOf="@id/verticalGuideline2"
+        app:layout_constraintTop_toTopOf="@+id/horizontalGuideline1"
+        app:layout_constraintBottom_toTopOf="@+id/horizontalGuideline2"/>
 
     <TextView
         android:id="@+id/textView2"
@@ -103,10 +103,10 @@
         android:layout_marginBottom="8dp"
         android:text="Hora"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/horizontalGuideline2"
-        app:layout_constraintEnd_toStartOf="@+id/verticalGuideline5"
         app:layout_constraintStart_toStartOf="@+id/verticalGuideline4"
-        app:layout_constraintTop_toTopOf="@+id/horizontalGuideline1" />
+        app:layout_constraintEnd_toStartOf="@+id/verticalGuideline5"
+        app:layout_constraintTop_toTopOf="@+id/horizontalGuideline1"
+        app:layout_constraintBottom_toTopOf="@+id/horizontalGuideline2" />
 
     <TextView
         android:id="@+id/textView3"
@@ -120,10 +120,10 @@
         android:layout_marginBottom="8dp"
         android:text="Peso"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/horizontalGuideline3"
-        app:layout_constraintEnd_toStartOf="@+id/verticalGuideline3"
         app:layout_constraintStart_toStartOf="@+id/verticalGuideline2"
-        app:layout_constraintTop_toTopOf="@+id/horizontalGuideline2" />
+        app:layout_constraintEnd_toStartOf="@+id/verticalGuideline3"
+        app:layout_constraintTop_toTopOf="@+id/horizontalGuideline2"
+        app:layout_constraintBottom_toTopOf="@+id/horizontalGuideline3" />
 
     <TextView
         android:id="@+id/textView4"
@@ -135,9 +135,10 @@
         android:layout_marginBottom="8dp"
         android:text="Diastólica:"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/horizontalGuideline4"
+        app:layout_constraintStart_toStartOf="@+id/verticalGuideline1"
         app:layout_constraintEnd_toStartOf="@+id/verticalGuideline2"
-        app:layout_constraintTop_toTopOf="@+id/horizontalGuideline3" />
+        app:layout_constraintTop_toTopOf="@+id/horizontalGuideline3"
+        app:layout_constraintBottom_toTopOf="@+id/horizontalGuideline4" />
 
     <TextView
         android:id="@+id/textView5"
@@ -149,10 +150,10 @@
         android:layout_marginRight="8dp"
         android:text="Sistólica:"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/horizontalGuideline4"
-        app:layout_constraintEnd_toStartOf="@+id/verticalGuideline5"
         app:layout_constraintStart_toStartOf="@+id/verticalGuideline4"
-        app:layout_constraintTop_toTopOf="@+id/horizontalGuideline3" />
+        app:layout_constraintEnd_toStartOf="@+id/verticalGuideline5"
+        app:layout_constraintTop_toTopOf="@+id/horizontalGuideline3"
+        app:layout_constraintBottom_toTopOf="@+id/horizontalGuideline4" />
 
     <TextView
         android:id="@+id/idFecha"
@@ -163,10 +164,10 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:hint="Fecha"
-        app:layout_constraintBottom_toTopOf="@+id/horizontalGuideline2"
-        app:layout_constraintEnd_toStartOf="@+id/verticalGuideline3"
         app:layout_constraintStart_toStartOf="@+id/verticalGuideline2"
-        app:layout_constraintTop_toTopOf="@+id/horizontalGuideline1" />
+        app:layout_constraintEnd_toStartOf="@+id/verticalGuideline3"
+        app:layout_constraintTop_toTopOf="@+id/horizontalGuideline1"
+        app:layout_constraintBottom_toTopOf="@+id/horizontalGuideline2" />
 
     <TextView
         android:id="@+id/idHora"
@@ -179,10 +180,10 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:hint="Hora"
-        app:layout_constraintBottom_toTopOf="@+id/horizontalGuideline2"
-        app:layout_constraintEnd_toStartOf="@+id/verticalGuideline6"
         app:layout_constraintStart_toStartOf="@+id/verticalGuideline5"
-        app:layout_constraintTop_toTopOf="@+id/horizontalGuideline1" />
+        app:layout_constraintEnd_toStartOf="@+id/verticalGuideline6"
+        app:layout_constraintTop_toTopOf="@+id/horizontalGuideline1"
+        app:layout_constraintBottom_toTopOf="@+id/horizontalGuideline2" />
 
     <TextView
         android:id="@+id/idEntradaPeso"
@@ -195,10 +196,10 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:hint="Peso"
-        app:layout_constraintBottom_toTopOf="@+id/horizontalGuideline3"
-        app:layout_constraintEnd_toStartOf="@+id/verticalGuideline5"
         app:layout_constraintStart_toStartOf="@+id/verticalGuideline4"
-        app:layout_constraintTop_toTopOf="@+id/horizontalGuideline2" />
+        app:layout_constraintEnd_toStartOf="@+id/verticalGuideline5"
+        app:layout_constraintTop_toTopOf="@+id/horizontalGuideline2"
+        app:layout_constraintBottom_toTopOf="@+id/horizontalGuideline3" />
 
     <TextView
         android:id="@+id/idDiastolica"
@@ -209,10 +210,10 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:hint="Diastólica"
-        app:layout_constraintBottom_toTopOf="@+id/horizontalGuideline4"
-        app:layout_constraintEnd_toStartOf="@+id/verticalGuideline3"
         app:layout_constraintStart_toStartOf="@+id/verticalGuideline2"
-        app:layout_constraintTop_toTopOf="@+id/horizontalGuideline3" />
+        app:layout_constraintEnd_toStartOf="@+id/verticalGuideline3"
+        app:layout_constraintTop_toTopOf="@+id/horizontalGuideline3"
+        app:layout_constraintBottom_toTopOf="@+id/horizontalGuideline4" />
 
     <TextView
         android:id="@+id/idSistolica"
@@ -223,9 +224,9 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:hint="Sistólica"
-        app:layout_constraintBottom_toTopOf="@+id/horizontalGuideline4"
-        app:layout_constraintEnd_toStartOf="@+id/verticalGuideline6"
         app:layout_constraintStart_toStartOf="@+id/verticalGuideline5"
-        app:layout_constraintTop_toTopOf="@+id/horizontalGuideline3" />
+        app:layout_constraintEnd_toStartOf="@+id/verticalGuideline6"
+        app:layout_constraintTop_toTopOf="@+id/horizontalGuideline3"
+        app:layout_constraintBottom_toTopOf="@+id/horizontalGuideline4" />
 
 </android.support.constraint.ConstraintLayout>

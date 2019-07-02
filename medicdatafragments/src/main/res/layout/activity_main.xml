@@ -12,20 +12,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/menu"
-        android:name="com.afr.fragmentshelloworld.MenuFragment"
+        android:name="com.afr.medicdatafragments.MenuFragment"
         tools:layout="@layout/fragment_menu">
     </fragment>
 
-    <!--contenedor en el que se pondrá el fragmento que toque -->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:id="@+id/destino">
-
-        <!--aquí se irán cargando los fragmentos -->
-
+        android:gravity="center">
     </RelativeLayout>
-
 
 </LinearLayout>

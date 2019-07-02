@@ -13,26 +13,26 @@
         android:orientation="horizontal"
         android:gravity="center_horizontal">
 
-         <Space style="@style/espacio"/>
+        <Space style="@style/espacio"/>
 
         <ImageButton android:id="@+id/boton1"
             style="@style/botones"
-            android:src="@drawable/bgris1"/>
+            android:src="@drawable/botonverde"/>
 
-          <Space style="@style/espacio"/>
+        <Space style="@style/espacio"/>
 
-         <ImageButton android:id="@+id/boton2"
-             style="@style/botones"
-             android:src="@drawable/bgris2"/>
+        <ImageButton android:id="@+id/boton2"
+            style="@style/botones"
+            android:src="@drawable/botonrojo"/>
 
-          <Space style="@style/espacio"/>
+        <Space style="@style/espacio"/>
 
-         <ImageButton android:id="@+id/boton3"
-             style="@style/botones"
-             android:src="@drawable/bgris3"/>
+        <ImageButton android:id="@+id/boton3"
+            style="@style/botones"
+            android:src="@drawable/botonazul"/>
 
-          <Space style="@style/espacio"/>
+        <Space style="@style/espacio"/>
 
-     </LinearLayout>
+    </LinearLayout>
 
- </FrameLayout>
+</FrameLayout>

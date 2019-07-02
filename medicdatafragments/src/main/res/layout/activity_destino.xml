@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/menu"
-        android:name="com.afr.fragmentshelloworld.MenuFragment"
+        android:name="com.afr.medicdatafragments.MenuFragment"
         tools:layout="@layout/fragment_menu">
     </fragment>
 

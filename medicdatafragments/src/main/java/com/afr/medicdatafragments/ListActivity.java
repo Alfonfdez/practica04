@@ -1,4 +1,4 @@
-package com.afr.medicdata;
+package com.afr.medicdatafragments;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,7 +14,7 @@ public class ListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list);
+        setContentView(R.layout.fragment_b_list_view);
 
         Log.d("DATABASE","En onCreate de ListActivity");
 
