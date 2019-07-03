@@ -1,15 +1,15 @@
-package com.afr.medicdatafragments;
+package com.afr.medicdatafragments.fragments;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 
-import com.afr.medicdatafragments.fragments.MenuPulsado;
+import com.afr.medicdatafragments.R;
 
 public class MenuFragment extends Fragment {
 
@@ -44,18 +44,22 @@ public class MenuFragment extends Fragment {
                 @Override
                 public void onClick(View v) {
 
-                    // Hemos de detectar en que actividad nos encontramos...
-                    Activity estaActividad = getActivity();
+                    Fragment fragment = null;
 
-                    //Hay que enviar la información al interface ComunicaMenu
-                    Log.d("**","Pulsamos y enviamos info del botón: " + botonPulsado);
+                    switch (botonPulsado){
+                        case 0: fragment = new AFragmentForm();
+                            break;
+                        case 1: fragment = new BFragmentListView();
+                            break;
+                        case 2: fragment = new CFragmentUserForm();
+                            break;
+                    }
 
-                    //Hacemos un 'upcasting'. Se podría escribir así paso por paso:
-                    //ComunicaMenu cm = (ComunicaMenu) estaActividad;
-                    //cm.menu(botonPulsado);
+                    FragmentManager fragmentManager = getFragmentManager();
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
-                    ((MenuPulsado) estaActividad).menuSeleccionado(botonPulsado);
-
+                    fragmentTransaction.replace(R.id.destino, fragment);
+                    fragmentTransaction.commit();
                 }
             });
 
@@ -63,7 +67,6 @@ public class MenuFragment extends Fragment {
 
         // Inflate the layout for this fragment
         return miMenu;
-
     }
 
 }

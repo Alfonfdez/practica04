@@ -1,4 +1,4 @@
-package com.afr.medicdatafragments;
+package com.afr.medicdatafragments.adapters;
 
 import android.content.Context;
 import android.util.Log;
@@ -8,14 +8,18 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.afr.medicdatafragments.R;
 import com.afr.medicdatafragments.model.Lectura;
-import com.afr.medicdatafragments.model.LecturaServices;
-import com.afr.medicdatafragments.model.LecturaServicesSQLite;
+import com.afr.medicdatafragments.services.LecturaServices;
+import com.afr.medicdatafragments.services.impl.LecturaServicesSQLite;
 
 import java.text.SimpleDateFormat;
 import java.util.List;
 
-public class Adaptador extends BaseAdapter {
+public class LecturasAdapter extends BaseAdapter {
+
+    private static final SimpleDateFormat SDF_FECHA = new SimpleDateFormat("dd/MM/yyyy");
+    private static final SimpleDateFormat SDF_HORA = new SimpleDateFormat("HH:mm");
 
     //Atributos
     private SimpleDateFormat sdfFecha = new SimpleDateFormat("dd/MM/yyyy");
@@ -26,7 +30,7 @@ public class Adaptador extends BaseAdapter {
     private Context contexto;
 
     //Constructor
-    public Adaptador(Context contexto){
+    public LecturasAdapter(Context contexto){
         Log.d("DATABASE","En constructor de Adaptador");
 
         this.contexto = contexto;
@@ -70,9 +74,11 @@ public class Adaptador extends BaseAdapter {
 
         Lectura lectura = lecturas.get(i);
 
+        //String strParteFecha = sdfFecha.format(lectura.getFecha());
+        //String strParteHora = sdfHora.format(lectura.getHora());
 
-        String strParteFecha = sdfFecha.format(lectura.getFecha());
-        String strParteHora = sdfHora.format(lectura.getHora());
+        String strParteFecha = SDF_FECHA.format(lectura.getFecha());
+        String strParteHora = SDF_HORA.format(lectura.getHora());
 
         fecha.setText(strParteFecha);
         hora.setText(strParteHora);
@@ -82,4 +88,5 @@ public class Adaptador extends BaseAdapter {
 
         return vista;
     }
+
 }

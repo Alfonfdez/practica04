@@ -1,4 +1,6 @@
-package com.afr.medicdatafragments.model;
+package com.afr.medicdatafragments.services;
+
+import com.afr.medicdatafragments.model.Lectura;
 
 import java.util.Date;
 import java.util.List;

@@ -1,64 +1,53 @@
-package com.afr.medicdatafragments.model;
+package com.afr.medicdatafragments.services.impl;
 
 import android.content.Context;
 
 import com.afr.medicdatafragments.database.DatabaseHelper;
+import com.afr.medicdatafragments.model.Lectura;
+import com.afr.medicdatafragments.services.LecturaServices;
 
 import java.util.Date;
 import java.util.List;
 
-public class LecturaServicesSQLite implements LecturaServices{
+public class LecturaServicesSQLite implements LecturaServices {
 
-    //Atributos
-    private Context contexto;
     private DatabaseHelper myDB;
 
-    //Constructores
-    /*public LecturaServicesSQLite(){
-
-    }*/
-
-    //Constructor
     public LecturaServicesSQLite(Context context){
-        this.contexto = context;
-        myDB = new DatabaseHelper(contexto);
+        myDB = new DatabaseHelper(context);
     }
 
-    //Métodos a implementar
     @Override
     public Lectura create(Lectura lectura) {
-
         return myDB.createLectura(lectura);
     }
 
     @Override
     public Lectura read(Integer codigo) {
-        //TO-DO
+        //TODO
         return null;
     }
 
     @Override
     public Lectura update(Lectura lectura) {
-        //TO-DO
+        //TODO
         return null;
     }
 
     @Override
     public boolean delete(Integer codigo) {
-        //TO-DO
+        //TODO
         return false;
     }
 
     @Override
     public List<Lectura> getAll() {
-
         return myDB.getAll();
     }
 
     @Override
-    public List<Lectura> getBetweenDates(Date fecha1, Date fecha2) {
-
-        //TO-DO
+    public List<Lectura> getBetweenDates(Date desde, Date hasta) {
+        //TODO
         return null;
     }
 }
