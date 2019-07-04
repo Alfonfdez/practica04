@@ -1,1 +1,1 @@
-include ':app', ':medicdata', ':gestionmultas', ':sqlitehelloworld', ':fragmentshelloworld', ':medicdatafragments'
+include ':app', ':medicdata', ':gestionmultas', ':sqlitehelloworld', ':fragmentshelloworld', ':medicdatafragments', ':resthelloworld'
