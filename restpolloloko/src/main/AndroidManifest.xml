@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.afr.resthelloworld">
+    package="com.afr.restpolloloko">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -18,6 +18,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activity.CamareroActivity"></activity>
+        <activity android:name=".activity.ProductoActivity"></activity>
+        <activity android:name=".activity.PedidoActivity"></activity>
     </application>
 
 </manifest>

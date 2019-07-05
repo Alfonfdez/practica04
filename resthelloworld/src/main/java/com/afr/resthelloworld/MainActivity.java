@@ -4,6 +4,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
 public class MainActivity extends AppCompatActivity {
 
     // I - Declarar las variables
@@ -26,12 +34,12 @@ public class MainActivity extends AppCompatActivity {
     private void getComments(){
         Call<List<Comment>> call = jsonPlaceHolderApi.getComments(3);
 
-        call.enqueue(new CallBack<List<Comment>>(){
+        call.enqueue(new Callback<List<Comment>>(){
 
             @Override
             public void onResponse(Call<List<Comment>> call, Response<List<Comment>> response){
 
-                if(!response.isSuccesful()){
+                if(!response.isSuccessful()){
                     textViewResult.setText("Code: "+ response.code());
                     return;
                 }

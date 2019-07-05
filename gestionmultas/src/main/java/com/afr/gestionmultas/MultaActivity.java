@@ -41,12 +41,12 @@ public class MultaActivity extends AppCompatActivity {
 
         Log.d("******","ENTRAMOS EN ENVIAR");
 
-        RadioButton radioAgente = (RadioButton) findViewById(R.id.id_agentes);
+        //RadioButton radioAgente = (RadioButton) findViewById(R.id.id_agentes);
         EditText editMotivo = (EditText) findViewById(R.id.id_motivo);
-        RadioButton radioAceptada = (RadioButton) findViewById(R.id.id_aceptada);
+        //RadioButton radioAceptada = (RadioButton) findViewById(R.id.id_aceptada);
         EditText editObservaciones = (EditText) findViewById(R.id.id_observaciones);
         EditText editImporte = (EditText) findViewById(R.id.id_importe);
-        RadioButton radioTipo = (RadioButton) findViewById(R.id.id_tipo);
+        //RadioButton radioTipo = (RadioButton) findViewById(R.id.id_tipo);
 
         Agente agente = new Agente();
         String motivo = editMotivo.getText().toString();
@@ -55,10 +55,10 @@ public class MultaActivity extends AppCompatActivity {
 
 
         // 1) Vamos a instanciar una lectura
-        Multa multa = new Multa(new Date(), agente, motivo, aceptada, observaciones, importe, tipo);
+        //Multa multa = new Multa(new Date(), agente, motivo, aceptada, observaciones, importe, tipo);
 
         // 2) Vamos a persistir una lectura
-        multaServices.create(multa);
+        //multaServices.create(multa);
 
         // 3) Vamos a instanciar un 'intent'
         Intent intent = new Intent(this, MainActivity.class);

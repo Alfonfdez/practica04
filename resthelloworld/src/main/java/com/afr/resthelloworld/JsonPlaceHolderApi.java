@@ -23,7 +23,7 @@ public interface JsonPlaceHolderApi {
     Call<List<Post>> getPosts(@Query("userId") int userId);
     //Resuelve la dirección URL: https://jsonplaceholder.typicode.com/posts?userId=10
 
-    @GET("posts/{id}/comments")
+    @POST("posts/{id}/comments")
     Call<Post> createPost(@Body Post post);
 
 }

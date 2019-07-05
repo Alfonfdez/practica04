@@ -1,11 +1,15 @@
 package com.afr.resthelloworld;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Comment {
 
     private int id;
     private int postId;
     private String name;
     private String email;
+
+    @SerializedName("body")
     private String text;
 
     public Comment(int id, int postId, String name, String email, String text) {
