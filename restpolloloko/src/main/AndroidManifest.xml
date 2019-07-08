@@ -21,6 +21,8 @@
         <activity android:name=".activity.CamareroActivity"></activity>
         <activity android:name=".activity.ProductoActivity"></activity>
         <activity android:name=".activity.PedidoActivity"></activity>
+        <activity android:name=".activity.AltaCamareroActivity"></activity>
+        <activity android:name=".activity.AltaProductoActivity"></activity>
     </application>
 
 </manifest>

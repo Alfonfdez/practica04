@@ -9,6 +9,7 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.Headers;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
@@ -24,9 +25,15 @@ public interface JsonPlaceHolderApi {
     Call<List<Camarero>> getCamarero(@Path("id") int codigo);
     //Resuelve la dirección URL: https://pedi-gest.herokuapp.com/api/camareros/100
 
-    @POST("camareros/{id}")
-    Call<Camarero> createCamarero(@Body Camarero camarero);
+    /*@POST("camareros/{id}")
+    Call<Camarero> createCamarero(@Body Camarero camarero);*/
 
+    @Headers("Content-type: application/json")
+    @POST("camareros")
+    public Call<Camarero> create(@Body Camarero camarero);
+
+
+    //***********************************
 
 
     //Producto
@@ -38,9 +45,14 @@ public interface JsonPlaceHolderApi {
     Call<List<Producto>> getProductoById(@Path("id") int codigo);
     //Resuelve la dirección URL: https://pedi-gest.herokuapp.com/api/productos/1
 
-    @POST("productos/{id}")
-    Call<Producto> createProducto(@Body Producto producto);
+    /*@POST("productos/{id}")
+    Call<Producto> createProducto(@Body Producto producto);*/
+    @Headers("Content-type: application/json")
+    @POST("productos")
+    public Call<Producto> create(@Body Producto producto);
 
+
+    //***********************************
 
 
     //Pedido

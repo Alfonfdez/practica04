@@ -50,9 +50,9 @@ public class MainActivity extends AppCompatActivity {
                     String content = "";
                     content += "ID: " + comment.getId() + "\n";
                     content += "Post_ID: " + comment.getPostId() + "\n";
-                    content += "ID: " + comment.getName() + "\n";
-                    content += "ID: " + comment.getEmail() + "\n";
-                    content += "ID: " + comment.getText() + "\n\n";
+                    content += "Name: " + comment.getName() + "\n";
+                    content += "Email: " + comment.getEmail() + "\n";
+                    content += "Text: " + comment.getText() + "\n\n";
 
                     textViewResult.append(content);
                 }

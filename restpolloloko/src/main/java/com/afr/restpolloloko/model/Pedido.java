@@ -64,4 +64,15 @@ public class Pedido {
     public void setLineasPedido(List<LineaPedido> lineasPedido) {
         this.lineasPedido = lineasPedido;
     }
+
+    @Override
+    public String toString() {
+        return "Pedido{" +
+                "id=" + id +
+                ", fecha=" + fecha +
+                ", mesa=" + mesa +
+                ", camarero=" + camarero +
+                ", lineasPedido=" + lineasPedido +
+                '}';
+    }
 }

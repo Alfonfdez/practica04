@@ -81,34 +81,39 @@ public class PedidoActivity extends AppCompatActivity {
                 }
 
                 List<Pedido> pedidos = response.body();
-                //List<LineaPedido> lineaPedidos = response.body();
+
 
                 for(Pedido pedido: pedidos){
                     String content = "";
                     content += "Id: " + pedido.getId() + "\n";
                     content += "Fecha: " + pedido.getFecha() + "\n";
-                    content += "Mesa: " + pedido.getMesa() + "\n";
+                    content += "Mesa: " + pedido.getMesa() + "\n\n";
 
                     content += "Camarero codigo: " + pedido.getCamarero().getCodigo() + "\n";
-                    content += "Camarero nombre: " + pedido.getCamarero().getNombre() + "\n";
+                    content += "Camarero nombre: " + pedido.getCamarero().getNombre() + "\n\n";
 
-                    /*for(LineaPedido lineaPedido : lineasPedidos){
+                    textViewPedido.append(content);
+
+                    for(LineaPedido lineaPedido : pedido.getLineasPedido()){
                         String contentLineasPedido = "";
 
                         contentLineasPedido+= "Producto codigo: " + lineaPedido.getProducto().getCodigo() + "\n";
-                        contentLineasPedido+= "Producto codigo: " + lineaPedido.getProducto().getCodigo() + "\n";
-                        contentLineasPedido+= "Producto codigo: " + lineaPedido.getProducto().getCodigo() + "\n";
-                        contentLineasPedido+= "Producto codigo: " + lineaPedido.getProducto().getCodigo() + "\n";
-                        contentLineasPedido+= "Producto codigo: " + lineaPedido.getProducto().getCodigo() + "\n";
-                        contentLineasPedido+= "Producto codigo: " + lineaPedido.getProducto().getCodigo() + "\n";
-                        contentLineasPedido+= "Producto codigo: " + lineaPedido.getProducto().getCodigo() + "\n";
+                        contentLineasPedido+= "Producto nombre: " + lineaPedido.getProducto().getNombre() + "\n";
+                        contentLineasPedido+= "Producto precio: " + lineaPedido.getProducto().getPrecio() + "\n";
+                        contentLineasPedido+= "Producto descripcion: " + lineaPedido.getProducto().getDescripcion() + "\n";
+                        contentLineasPedido+= "Producto fechaAlta: " + lineaPedido.getProducto().getFechaAlta() + "\n";
+                        contentLineasPedido+= "Producto descatalogado: " + lineaPedido.getProducto().isDescatalogado() + "\n";
+                        contentLineasPedido+= "Producto categoria: " + lineaPedido.getProducto().getCategoria() + "\n";
 
-                        contentLineasPedido+= "LineaPedido cantidad: " + lineaPedido.getCantidad() + "\n";
-                        contentLineasPedido+= "LineaPedido precio: " + lineaPedido.getPrecio() + "\n";
+                        contentLineasPedido+= "Cantidad: " + lineaPedido.getCantidad() + "\n";
+                        contentLineasPedido+= "Precio: " + lineaPedido.getPrecio() + "\n\n";
 
-                    }*/
+                        textViewPedido.append(contentLineasPedido);
+                    }
 
-                    //textViewPedido.append(content).append(contentLineasPedido);
+                    content += "\n";
+                    textViewPedido.append(content);
+
                 }
 
             }

@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.afr.restpolloloko.activity.AltaCamareroActivity;
+import com.afr.restpolloloko.activity.AltaProductoActivity;
 import com.afr.restpolloloko.activity.CamareroActivity;
 import com.afr.restpolloloko.activity.PedidoActivity;
 import com.afr.restpolloloko.activity.ProductoActivity;
@@ -30,6 +32,8 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
     private Button botonCamarero;
     private Button botonProducto;
     private Button botonPedido;
+    private Button botonAltaCamarero;
+    private Button botonAltaProducto;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,11 +43,14 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
         botonCamarero = (Button) findViewById(R.id.id_button_camarero);
         botonProducto = (Button) findViewById(R.id.id_button_producto);
         botonPedido = (Button) findViewById(R.id.id_button_pedido);
+        botonAltaCamarero = (Button) findViewById(R.id.id_button_alta_camarero);
+        botonAltaProducto = (Button) findViewById(R.id.id_button_alta_producto);
 
         botonCamarero.setOnClickListener(this);
         botonProducto.setOnClickListener(this);
         botonPedido.setOnClickListener(this);
-
+        botonAltaCamarero.setOnClickListener(this);
+        botonAltaProducto.setOnClickListener(this);
     }
 
     @Override
@@ -75,6 +82,22 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
                 Intent intentPedido = new Intent(this, PedidoActivity.class);
 
                 startActivity(intentPedido);
+
+                break;
+
+            case "4":
+
+                Intent intentAltaCamarero = new Intent(this, AltaCamareroActivity.class);
+
+                startActivity(intentAltaCamarero);
+
+                break;
+
+            case "5":
+
+                Intent intentAltaProducto = new Intent(this, AltaProductoActivity.class);
+
+                startActivity(intentAltaProducto);
 
                 break;
         }
