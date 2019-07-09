@@ -1,6 +1,7 @@
 package com.afr.restpolloloko.apirest;
 
 import com.afr.restpolloloko.model.Camarero;
+import com.afr.restpolloloko.model.LineaPedido;
 import com.afr.restpolloloko.model.Pedido;
 import com.afr.restpolloloko.model.Producto;
 
@@ -67,4 +68,12 @@ public interface JsonPlaceHolderApi {
     @POST("pedidos/{id}")
     Call<Pedido> createPedido(@Body Pedido pedido);
 
+
+    //***********************************
+
+
+    //Línea Pedidos
+    @GET("lineas")
+    Call<List<LineaPedido>> getLineaPedidos();
+    //Resuelve la dirección URL: https://pedi-gest.herokuapp.com/api/lineas
 }

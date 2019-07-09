@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.afr.restpolloloko.activity.AltaCamareroActivity;
 import com.afr.restpolloloko.activity.AltaProductoActivity;
 import com.afr.restpolloloko.activity.CamareroActivity;
+import com.afr.restpolloloko.activity.EstadisticaPedidoActivity;
 import com.afr.restpolloloko.activity.PedidoActivity;
 import com.afr.restpolloloko.activity.ProductoActivity;
 import com.afr.restpolloloko.apirest.JsonPlaceHolderApi;
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
     private Button botonPedido;
     private Button botonAltaCamarero;
     private Button botonAltaProducto;
+    private Button botonEstadisticaPedido;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,12 +47,14 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
         botonPedido = (Button) findViewById(R.id.id_button_pedido);
         botonAltaCamarero = (Button) findViewById(R.id.id_button_alta_camarero);
         botonAltaProducto = (Button) findViewById(R.id.id_button_alta_producto);
+        botonEstadisticaPedido = (Button) findViewById(R.id.id_button_estadistica);
 
         botonCamarero.setOnClickListener(this);
         botonProducto.setOnClickListener(this);
         botonPedido.setOnClickListener(this);
         botonAltaCamarero.setOnClickListener(this);
         botonAltaProducto.setOnClickListener(this);
+        botonEstadisticaPedido.setOnClickListener(this);
     }
 
     @Override
@@ -98,6 +102,14 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
                 Intent intentAltaProducto = new Intent(this, AltaProductoActivity.class);
 
                 startActivity(intentAltaProducto);
+
+                break;
+
+            case "6":
+
+                Intent intentEstadisticaPedido = new Intent(this, EstadisticaPedidoActivity.class);
+
+                startActivity(intentEstadisticaPedido);
 
                 break;
         }
