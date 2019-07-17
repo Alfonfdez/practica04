@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.afr.restcountryflags.R;
 import com.afr.restcountryflags.model.Country;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -50,12 +51,28 @@ public class CountriesAdapter extends BaseAdapter {
 
         View view = layoutInflater.inflate(R.layout.row_country, null);
 
-        TextView textViewCountry = (TextView) view.findViewById(R.id.idCountry);
+        TextView textViewCountryName = (TextView) view.findViewById(R.id.idCountryName);
+        TextView textViewCountryAlpha2Code = (TextView) view.findViewById(R.id.idCountryAlpha2Code);
+        TextView textViewCountryCapital = (TextView) view.findViewById(R.id.idCountryCapital);
+        TextView textViewCountryRegion = (TextView) view.findViewById(R.id.idCountryRegion);
+        TextView textViewCountrySubregion = (TextView) view.findViewById(R.id.idCountrySubregion);
+        TextView textViewCountryPopulation = (TextView) view.findViewById(R.id.idCountryPopulation);
+
         ImageView imageViewFlag = (ImageView) view.findViewById(R.id.idFlag);
+
 
         Country country = countries.get(position);
 
-        textViewCountry.setText(country.getName());
+        textViewCountryName.setText(country.getName());
+        textViewCountryAlpha2Code.setText(country.getAlpha2Code());
+        textViewCountryCapital.setText(country.getCapital());
+        textViewCountryRegion.setText(country.getRegion());
+        textViewCountrySubregion.setText(country.getSubregion());
+        textViewCountryPopulation.setText(Integer.toString(country.getPopulation()));
+
+        String imageURL = "https://www.countryflags.io/" + country.getAlpha2Code() + "/flat/64.png";
+
+        Picasso.get().load(imageURL).placeholder(R.drawable.placeholder).into(imageViewFlag);
 
         return view;
     }
