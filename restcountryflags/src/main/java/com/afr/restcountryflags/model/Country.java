@@ -9,18 +9,20 @@ public class Country {
     private String region;
     private String subregion;
     private int population;
+    private String[] borders;
 
     //Constructores
     public Country() {
     }
 
-    public Country(String name, String alpha2Code, String capital, String region, String subregion, int population) {
+    public Country(String name, String alpha2Code, String capital, String region, String subregion, int population, String[] borders) {
         this.name = name;
         this.alpha2Code = alpha2Code;
         this.capital = capital;
         this.region = region;
         this.subregion = subregion;
         this.population = population;
+        this.borders = borders;
     }
 
     //Getters y Setters
@@ -70,5 +72,13 @@ public class Country {
 
     public void setPopulation(int population) {
         this.population = population;
+    }
+
+    public String[] getBorders() {
+        return borders;
+    }
+
+    public void setBorders(String[] borders) {
+        this.borders = borders;
     }
 }

@@ -46,7 +46,6 @@ public class MainActivity extends AppCompatActivity {
         call.enqueue(new Callback<List<Country>>() {
 
 
-
             @Override
             public void onResponse(Call<List<Country>> call, Response<List<Country>> response) {
 

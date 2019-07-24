@@ -1,6 +1,7 @@
 package com.afr.restcountryflags.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.afr.restcountryflags.R;
+import com.afr.restcountryflags.VisorDetalles;
 import com.afr.restcountryflags.model.Country;
 import com.squareup.picasso.Picasso;
 
@@ -20,18 +22,18 @@ public class CountriesAdapter extends BaseAdapter {
     //Atributo
     private List<Country> countries;
     private LayoutInflater layoutInflater;
+    private Context contexto;
 
     //Constructor
-    public CountriesAdapter(List<Country> countries, Context context){
+    public CountriesAdapter(List<Country> countries, Context contexto){
+        this.contexto = contexto;
         this.countries = countries;
-        this.layoutInflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
+        this.layoutInflater = (LayoutInflater) contexto.getSystemService(contexto.LAYOUT_INFLATER_SERVICE);
     }
 
 
     @Override
     public int getCount() {
-
-
         return countries.size();
     }
 
@@ -61,7 +63,7 @@ public class CountriesAdapter extends BaseAdapter {
         ImageView imageViewFlag = (ImageView) view.findViewById(R.id.idFlag);
 
 
-        Country country = countries.get(position);
+        final Country country = countries.get(position);
 
         textViewCountryName.setText(country.getName());
         textViewCountryAlpha2Code.setText(country.getAlpha2Code());
@@ -74,6 +76,24 @@ public class CountriesAdapter extends BaseAdapter {
 
         Picasso.get().load(imageURL).placeholder(R.drawable.placeholder).into(imageViewFlag);
 
+
+
+        //Cuando hagamos clic en la bandera veremos los detalles del país
+        imageViewFlag.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(contexto, VisorDetalles.class);
+
+                intent.putExtra("CODIGO", country.getAlpha2Code());
+
+                contexto.startActivity(intent);
+            }
+        });
+
         return view;
     }
+
+
+
 }
