@@ -1,1 +1,1 @@
-include ':app', ':medicdata', ':gestionmultas', ':sqlitehelloworld', ':fragmentshelloworld', ':medicdatafragments', ':resthelloworld', ':restpolloloko', ':gpshelloworldv1', ':settingshelloworld', ':restcountryflags', ':accesocamara', ':accesocontactos'
+include ':app', ':medicdata', ':gestionmultas', ':sqlitehelloworld', ':fragmentshelloworld', ':medicdatafragments', ':resthelloworld', ':restpolloloko', ':gpshelloworldv1', ':settingshelloworld', ':restcountryflags', ':accesocamara', ':accesocontactos', ':customeventdemo'
