@@ -72,7 +72,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline" />
 
     <TextView
-        android:id="@+id/Entrada Diastólica"
+        android:id="@+id/Entrada_Diastolica"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Entrada Diastólica"
